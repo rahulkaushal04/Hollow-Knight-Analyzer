@@ -1,0 +1,178 @@
+[
+  {
+    "id": "forgotten_crossroads",
+    "display_name": "Forgotten Crossroads",
+    "visited_key": "visitedCrossroads",
+    "cornifer_encountered_key": "corn_crossroadsEncountered",
+    "cornifer_left_key": "corn_crossroadsLeft",
+    "stag_key": "openedCrossroads",
+    "tile_colour": "#7A6A9A",
+    "can_infect": true,
+    "infected_key": "crossroadsInfected"
+  },
+  {
+    "id": "greenpath",
+    "display_name": "Greenpath",
+    "visited_key": "visitedGreenpath",
+    "cornifer_encountered_key": "corn_greenpathEncountered",
+    "cornifer_left_key": "corn_greenpathLeft",
+    "stag_key": "openedGreenpath",
+    "tile_colour": "#4A7A4A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "fungal_wastes",
+    "display_name": "Fungal Wastes",
+    "visited_key": "visitedFungus",
+    "cornifer_encountered_key": "corn_fungalWastesEncountered",
+    "cornifer_left_key": "corn_fungalWastesLeft",
+    "stag_key": "openedFungalWastes",
+    "tile_colour": "#8B6A3A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "city_of_tears",
+    "display_name": "City of Tears",
+    "visited_key": "visitedRuins",
+    "cornifer_encountered_key": "corn_cityEncountered",
+    "cornifer_left_key": "corn_cityLeft",
+    "stag_key": "openedRuins1",
+    "tile_colour": "#4A6A8A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "crystal_peak",
+    "display_name": "Crystal Peak",
+    "visited_key": "visitedMines",
+    "cornifer_encountered_key": "corn_minesEncountered",
+    "cornifer_left_key": "corn_minesLeft",
+    "stag_key": null,
+    "tile_colour": "#9A7AAA",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "resting_grounds",
+    "display_name": "Resting Grounds",
+    "visited_key": "visitedRestingGrounds",
+    "cornifer_encountered_key": null,
+    "cornifer_left_key": null,
+    "stag_key": "openedRestingGrounds",
+    "tile_colour": "#6A5A8A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "royal_waterways",
+    "display_name": "Royal Waterways",
+    "visited_key": "visitedWaterways",
+    "cornifer_encountered_key": "corn_waterwaysEncountered",
+    "cornifer_left_key": "corn_waterwaysLeft",
+    "stag_key": null,
+    "tile_colour": "#3A6A6A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "deepnest",
+    "display_name": "Deepnest",
+    "visited_key": "visitedDeepnest",
+    "cornifer_encountered_key": "corn_deepnestEncountered",
+    "cornifer_left_key": "corn_deepnestLeft",
+    "stag_key": "openedDeepnest",
+    "tile_colour": "#3A3A5A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "ancient_basin",
+    "display_name": "Ancient Basin",
+    "visited_key": "visitedAbyss",
+    "cornifer_encountered_key": "corn_abyssEncountered",
+    "cornifer_left_key": "corn_abyssLeft",
+    "stag_key": "openedHiddenStation",
+    "tile_colour": "#2A2A4A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "kingdoms_edge",
+    "display_name": "Kingdom's Edge",
+    "visited_key": "visitedOutskirts",
+    "cornifer_encountered_key": "corn_outskirtsEncountered",
+    "cornifer_left_key": "corn_outskirtsLeft",
+    "stag_key": "openedStagNest",
+    "tile_colour": "#8A6A5A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "fog_canyon",
+    "display_name": "Fog Canyon",
+    "visited_key": "visitedFogCanyon",
+    "cornifer_encountered_key": "corn_fogCanyonEncountered",
+    "cornifer_left_key": "corn_fogCanyonLeft",
+    "stag_key": null,
+    "tile_colour": "#7A8AAA",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "queens_gardens",
+    "display_name": "Queen's Gardens",
+    "visited_key": "visitedRoyalGardens",
+    "cornifer_encountered_key": "corn_royalGardensEncountered",
+    "cornifer_left_key": "corn_royalGardensLeft",
+    "stag_key": "openedRoyalGardens",
+    "tile_colour": "#5A9A6A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "howling_cliffs",
+    "display_name": "Howling Cliffs",
+    "visited_key": "visitedCliffs",
+    "cornifer_encountered_key": "corn_cliffsEncountered",
+    "cornifer_left_key": "corn_cliffsLeft",
+    "stag_key": "openedStagNest",
+    "tile_colour": "#6A6A7A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "the_hive",
+    "display_name": "The Hive",
+    "visited_key": "visitedHive",
+    "cornifer_encountered_key": null,
+    "cornifer_left_key": null,
+    "stag_key": null,
+    "tile_colour": "#AAAA4A",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "white_palace",
+    "display_name": "White Palace",
+    "visited_key": "visitedWhitePalace",
+    "cornifer_encountered_key": null,
+    "cornifer_left_key": null,
+    "stag_key": null,
+    "tile_colour": "#CCCCDD",
+    "can_infect": false,
+    "infected_key": null
+  },
+  {
+    "id": "dirtmouth",
+    "display_name": "Dirtmouth",
+    "visited_key": "visitedDirtmouth",
+    "cornifer_encountered_key": null,
+    "cornifer_left_key": null,
+    "stag_key": "openedDirtmouth",
+    "tile_colour": "#5A5A6A",
+    "can_infect": false,
+    "infected_key": null
+  }
+]
