@@ -47,9 +47,7 @@ logger = logging.getLogger(__name__)
 ENCRYPTION_KEY: bytes = b"UKu52ePUBwetZ9wNX88o54dnfKRu0T1l"
 
 # Fixed BinaryFormatter header that precedes the BASE64 payload
-CSHARP_HEADER: bytes = bytes.fromhex(
-    "0001000000FFFFFFFF01000000000000000601000000"
-)
+CSHARP_HEADER: bytes = bytes.fromhex("0001000000FFFFFFFF01000000000000000601000000")
 
 # BinaryFormatter serialized strings terminate with this byte
 END_BYTE: bytes = b"\x0b"
@@ -124,9 +122,7 @@ class HollowKnightDecryptor:
 
         while True:
             if offset >= len(data):
-                raise DecryptionError(
-                    "Truncated 7 bit encoded integer"
-                )
+                raise DecryptionError("Truncated 7 bit encoded integer")
 
             byte = data[offset]
             offset += 1
@@ -169,9 +165,7 @@ class HollowKnightDecryptor:
         try:
             header_end = len(CSHARP_HEADER)
 
-            length, data_start = self._parse_7bit_encoded_int(
-                raw_data, header_end
-            )
+            length, data_start = self._parse_7bit_encoded_int(raw_data, header_end)
 
             base64_data = raw_data[data_start:-1]
 
@@ -191,9 +185,7 @@ class HollowKnightDecryptor:
             raise
 
         except Exception as e:
-            raise DecryptionError(
-                "Failed to parse BinaryFormatter structure"
-            ) from e
+            raise DecryptionError("Failed to parse BinaryFormatter structure") from e
 
     def decode_base64(self, encrypted_data: Union[bytes, str]) -> bytes:
         """
@@ -212,9 +204,7 @@ class HollowKnightDecryptor:
             return decoded
 
         except Exception as e:
-            raise Base64DecodeError(
-                f"BASE64 decoding failed: {e}"
-            ) from e
+            raise Base64DecodeError(f"BASE64 decoding failed: {e}") from e
 
     def decrypt_aes(self, encoded_data: bytes) -> bytes:
         """
@@ -287,9 +277,7 @@ class HollowKnightDecryptor:
 
             json_string = decrypted_bytes.decode("utf-8")
 
-            logger.info(
-                f"Decryption successful: {len(json_string)} characters"
-            )
+            logger.info(f"Decryption successful: {len(json_string)} characters")
 
             return json_string
 
@@ -302,9 +290,7 @@ class HollowKnightDecryptor:
             ) from e
 
         except Exception as e:
-            raise DecryptionError(
-                f"Unexpected decryption error: {e}"
-            ) from e
+            raise DecryptionError(f"Unexpected decryption error: {e}") from e
 
     def decrypt_bytes(self, raw_data: bytes) -> str:
         """
@@ -320,9 +306,7 @@ class HollowKnightDecryptor:
 
             json_string = decrypted_bytes.decode("utf-8")
 
-            logger.info(
-                f"Decryption successful: {len(json_string)} characters"
-            )
+            logger.info(f"Decryption successful: {len(json_string)} characters")
 
             return json_string
 
@@ -335,9 +319,7 @@ class HollowKnightDecryptor:
             ) from e
 
         except Exception as e:
-            raise DecryptionError(
-                f"Unexpected decryption error: {e}"
-            ) from e
+            raise DecryptionError(f"Unexpected decryption error: {e}") from e
 
     def decrypt_to_file(
         self,
@@ -367,13 +349,9 @@ class HollowKnightDecryptor:
             return output_path
 
         except json.JSONDecodeError:
-            logger.warning(
-                "Decrypted content is not valid JSON. Writing raw output."
-            )
+            logger.warning("Decrypted content is not valid JSON. Writing raw output.")
             output_path.write_text(json_string, encoding="utf-8")
             return output_path
 
         except OSError as e:
-            raise IOError(
-                f"Failed to write output file {output_path}"
-            ) from e
+            raise IOError(f"Failed to write output file {output_path}") from e

@@ -26,6 +26,7 @@ from dataclasses import dataclass, field
 # Charm System
 # ------------------------------------------------------------
 
+
 @dataclass
 class CharmState:
     """
@@ -55,6 +56,7 @@ class CharmState:
 # Boss System
 # ------------------------------------------------------------
 
+
 @dataclass
 class BossState:
     """
@@ -83,8 +85,32 @@ class BossState:
 
 
 # ------------------------------------------------------------
+# Dreamer System
+# ------------------------------------------------------------
+
+
+@dataclass
+class DreamerState:
+    """
+    State of a single Dreamer seal.
+
+    Dreamers are the three higher beings whose seals lock the
+    Black Egg Temple. Each defeated Dreamer contributes 1% to
+    completion.
+    """
+
+    id: str
+    display_name: str
+
+    defeated: bool
+
+    area: str = ""
+
+
+# ------------------------------------------------------------
 # Ability System
 # ------------------------------------------------------------
+
 
 @dataclass
 class AbilityState:
@@ -127,6 +153,7 @@ class AbilityTree:
 # Grubs
 # ------------------------------------------------------------
 
+
 @dataclass
 class GrubState:
     """
@@ -145,6 +172,7 @@ class GrubState:
 # ------------------------------------------------------------
 # Relics
 # ------------------------------------------------------------
+
 
 @dataclass
 class RelicState:
@@ -170,6 +198,7 @@ class RelicState:
 # ------------------------------------------------------------
 # Collectibles
 # ------------------------------------------------------------
+
 
 @dataclass
 class CollectibleState:
@@ -206,6 +235,7 @@ class CollectibleState:
 # NPC Quest System
 # ------------------------------------------------------------
 
+
 @dataclass
 class NPCQuestState:
     """
@@ -230,6 +260,7 @@ class NPCQuestState:
 # ------------------------------------------------------------
 # Godhome
 # ------------------------------------------------------------
+
 
 @dataclass
 class StatueState:
@@ -276,6 +307,8 @@ class GodhomeState:
     Complete Godhome progression state.
     """
 
+    godtuner_found: bool = False
+
     statues: list[StatueState] = field(default_factory=list)
     pantheons: list[PantheonState] = field(default_factory=list)
 
@@ -283,6 +316,7 @@ class GodhomeState:
 # ------------------------------------------------------------
 # Map Areas
 # ------------------------------------------------------------
+
 
 @dataclass
 class AreaState:
@@ -307,6 +341,7 @@ class AreaState:
 # ------------------------------------------------------------
 # Player Statistics
 # ------------------------------------------------------------
+
 
 @dataclass
 class PlayerStats:
@@ -347,8 +382,9 @@ class PlayerStats:
 # Special Areas
 # ------------------------------------------------------------
 
+
 @dataclass
-class ColeseumState:
+class ColosseumState:
     """
     Colosseum of Fools progression.
     """
@@ -384,6 +420,7 @@ class WhitePalaceState:
 # Root Save Container
 # ------------------------------------------------------------
 
+
 @dataclass
 class SaveData:
     """
@@ -394,6 +431,7 @@ class SaveData:
 
     charms: list[CharmState] = field(default_factory=list)
     bosses: list[BossState] = field(default_factory=list)
+    dreamers: list[DreamerState] = field(default_factory=list)
 
     abilities: AbilityTree = field(default_factory=AbilityTree)
 
@@ -415,9 +453,11 @@ class SaveData:
 
     godhome: GodhomeState = field(default_factory=GodhomeState)
 
-    colosseum: ColeseumState = field(default_factory=ColeseumState)
+    colosseum: ColosseumState = field(default_factory=ColosseumState)
 
     white_palace: WhitePalaceState = field(default_factory=WhitePalaceState)
+
+    seer_departed: bool = False
 
     completion_percent: int = 0
 

@@ -71,8 +71,7 @@ def _load_list(filename: str) -> list[dict]:
     data = _load_json(filename, [])
 
     if not isinstance(data, list):
-        logger.error(
-            f"Expected list in {filename}, received {type(data).__name__}")
+        logger.error(f"Expected list in {filename}, received {type(data).__name__}")
         return []
 
     return data
@@ -85,8 +84,7 @@ def _load_dict(filename: str) -> dict:
     data = _load_json(filename, {})
 
     if not isinstance(data, dict):
-        logger.error(
-            f"Expected dict in {filename}, received {type(data).__name__}")
+        logger.error(f"Expected dict in {filename}, received {type(data).__name__}")
         return {}
 
     return data

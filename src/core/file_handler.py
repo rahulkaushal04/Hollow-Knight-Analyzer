@@ -182,8 +182,7 @@ def handle_upload(uploaded_file: "UploadedFile") -> tuple[SaveData, dict]:
         logger.error(f"Failed to parse decrypted JSON: {e}")
 
         raise FileHandlerError(
-            "The decrypted data is not valid JSON. "
-            "The save file may be corrupted.",
+            "The decrypted data is not valid JSON. " "The save file may be corrupted.",
             str(e),
         )
 
