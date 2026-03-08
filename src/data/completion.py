@@ -197,7 +197,7 @@ def _count_dream_nail(save: SaveData) -> tuple[int, list[str]]:
     )
 
     dream_nail_awakened = any(
-        ability.unlocked and ability.id == "dream_nail_awakened"
+        ability.unlocked and ability.id == "awoken_dream_nail"
         for ability in save.abilities.dream
     )
 

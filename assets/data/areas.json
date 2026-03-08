@@ -104,7 +104,7 @@
     "visited_key": "visitedOutskirts",
     "cornifer_encountered_key": "corn_outskirtsEncountered",
     "cornifer_left_key": "corn_outskirtsLeft",
-    "stag_key": "openedStagNest",
+    "stag_key": null,
     "tile_colour": "#8A6A5A",
     "can_infect": false,
     "infected_key": null
@@ -126,7 +126,7 @@
     "visited_key": "visitedRoyalGardens",
     "cornifer_encountered_key": "corn_royalGardensEncountered",
     "cornifer_left_key": "corn_royalGardensLeft",
-    "stag_key": "openedRoyalGardens",
+    "stag_key": "openedGardensStagStation",
     "tile_colour": "#5A9A6A",
     "can_infect": false,
     "infected_key": null
@@ -170,7 +170,7 @@
     "visited_key": "visitedDirtmouth",
     "cornifer_encountered_key": null,
     "cornifer_left_key": null,
-    "stag_key": "openedDirtmouth",
+    "stag_key": "openedTown",
     "tile_colour": "#5A5A6A",
     "can_infect": false,
     "infected_key": null

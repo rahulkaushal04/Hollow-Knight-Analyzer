@@ -302,7 +302,7 @@
     "category": "key_item",
     "save_key": "hasGodfinder",
     "description": "A strange device used to tune into Godhome.",
-    "how_to_get": "Found in the Junk Pit in the Royal Waterways.",
+    "how_to_get": "Use a Simple Key on the Godseeker's coffin in the Junk Pit in the Royal Waterways. The Godtuner is automatically dropped by the Godseeker upon being freed.",
     "requires_ability": null,
     "map_pixel_x": null,
     "map_pixel_y": null

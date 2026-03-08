@@ -17,6 +17,7 @@ from src.data.save_model import (
     CharmState,
     ColosseumState,
     CollectibleState,
+    DreamerState,
     GodhomeState,
     GrubState,
     NPCQuestState,
@@ -326,6 +327,33 @@ def _parse_collectibles(pd: dict) -> CollectibleState:
 
 
 # =============================================================================
+# Dreamers Parsing
+# =============================================================================
+
+_DREAMERS = [
+    ("lurien", "Lurien the Watcher", "lurienDefeated", "City of Tears"),
+    ("monomon", "Monomon the Teacher", "monomonDefeated", "Fog Canyon"),
+    ("herrah", "Herrah the Beast", "hegemolDefeated", "Deepnest"),
+]
+
+
+def _parse_dreamers(pd: dict) -> list[DreamerState]:
+    """Parse the three Dreamer seals from playerData."""
+
+    dreamers = []
+    for did, name, key, area in _DREAMERS:
+        dreamers.append(
+            DreamerState(
+                id=did,
+                display_name=name,
+                defeated=_gb(pd, key),
+                area=area,
+            )
+        )
+    return dreamers
+
+
+# =============================================================================
 # Area Parsing
 # =============================================================================
 
@@ -348,7 +376,7 @@ def _parse_areas(pd: dict) -> list[AreaState]:
 
         # Map obtained — use area-specific map key or fall back to generic
         map_obtained = (
-            _gb(pd, f"mapCrossroads") if area["id"] == "forgotten_crossroads" else False
+            _gb(pd, "mapCrossroads") if area["id"] == "forgotten_crossroads" else False
         )
         if area["id"] == "greenpath":
             map_obtained = _gb(pd, "mapGreenpath")
@@ -533,10 +561,13 @@ def _parse_pantheon(pd: dict, tier: int) -> PantheonState:
 
 def _parse_godhome(pd: dict) -> GodhomeState:
     """Parse all Hall of Gods and Pantheon data."""
+    godtuner_found = _gb(pd, "hasGodfinder")
     statues = [_parse_statue(pd, key, name) for key, name in _STATUE_BOSSES]
     pantheons = [_parse_pantheon(pd, tier) for tier in range(1, 6)]
 
-    return GodhomeState(statues=statues, pantheons=pantheons)
+    return GodhomeState(
+        godtuner_found=godtuner_found, statues=statues, pantheons=pantheons
+    )
 
 
 # =============================================================================
@@ -625,6 +656,7 @@ def parse_save(raw_dict: dict) -> SaveData:
     bosses = _parse_bosses(pd)
     abilities = _parse_abilities(pd)
     collectibles = _parse_collectibles(pd)
+    dreamers = _parse_dreamers(pd)
     areas = _parse_areas(pd)
     npc_quests = _parse_npc_quests(pd)
     godhome = _parse_godhome(pd)
@@ -640,6 +672,7 @@ def parse_save(raw_dict: dict) -> SaveData:
         bosses=bosses,
         abilities=abilities,
         collectibles=collectibles,
+        dreamers=dreamers,
         areas=areas,
         npc_quests=npc_quests,
         godhome=godhome,

@@ -658,35 +658,5 @@
     "map_pixel_x": null,
     "map_pixel_y": null,
     "difficulty": "easy"
-  },
-  {
-    "id": "sisters_of_battle",
-    "display_name": "Sisters of Battle",
-    "category": "other",
-    "area": "Godhome",
-    "sub_area": "Pantheon of the Knight",
-    "killed_key": "defeatedSistersOfBattle",
-    "kills_key": "killsSistersOfBattle",
-    "dream_version_id": null,
-    "dream_killed_key": null,
-    "statue_key": "statueStateMantisLordsExtra",
-    "map_pixel_x": null,
-    "map_pixel_y": null,
-    "difficulty": "extreme"
-  },
-  {
-    "id": "nosk_hornet",
-    "display_name": "Winged Nosk",
-    "category": "other",
-    "area": "Godhome",
-    "sub_area": "Pantheon of Hallownest",
-    "killed_key": "killedNoskHornet",
-    "kills_key": "killsNoskHornet",
-    "dream_version_id": null,
-    "dream_killed_key": null,
-    "statue_key": "statueStateNoskHornet",
-    "map_pixel_x": null,
-    "map_pixel_y": null,
-    "difficulty": "hard"
   }
 ]

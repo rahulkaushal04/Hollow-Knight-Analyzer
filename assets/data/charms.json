@@ -809,7 +809,7 @@
     "geo_cost": 0,
     "description": "Summons weaverlings to fight for the bearer.",
     "how_to_get": "Found in the Weavers' Den in Deepnest.",
-    "requires_ability": null,
+    "requires_ability": "crystal_heart",
     "synergies": [3, 37],
     "goal_weights": {
       "pure_damage": 0.2,
