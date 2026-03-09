@@ -1,21 +1,4 @@
-"""
-Header bar component.
-
-Renders a persistent top bar on every page once a save file has been loaded.
-The bar is split into three horizontal sections:
-
-    Left   -- App title ("Hallownest Codex") and current area with nail tier.
-    Centre -- Quick-glance stats: geo, health, soul, and play time.
-    Right  -- Spoiler visibility toggle.
-
-The component reads all state from st.session_state using the key constants
-defined in src.core.session and never mutates state directly (except through
-the registered on_change callback for the spoiler toggle).
-
-CSS classes used (.header-bar, .header-title, .header-stats, .header-stat-item)
-are defined in assets/styles/theme.css and must remain in sync with the markup
-produced here.
-"""
+"""Header bar component — persistent top bar showing save summary and spoiler toggle."""
 
 from __future__ import annotations
 
@@ -34,11 +17,7 @@ _ICONS_DIR = _PROJECT_ROOT / "assets" / "icons"
 
 @lru_cache(maxsize=None)
 def _icon_src(name: str) -> str:
-    """Return a base64 data-URI for the PNG icon *name* (without extension).
-
-    Falls back to an empty string if the file is missing so the img tag
-    simply renders nothing rather than raising an exception.
-    """
+    """Return a base64 data-URI for the named PNG icon; cached indefinitely."""
     path = _ICONS_DIR / f"{name}.png"
     if not path.exists():
         return ""
@@ -46,12 +25,18 @@ def _icon_src(name: str) -> str:
     return f"data:image/png;base64,{data}"
 
 
-# =============================================================================
-# Constants
-# =============================================================================
+@lru_cache(maxsize=None)
+def _icon_html(name: str, alt: str) -> str:
+    """Return an img tag for the named icon, or a plain alt prefix if missing."""
+    src = _icon_src(name)
+    if src:
+        return (
+            f'<img src="{src}" alt="{alt}" '
+            'style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">'
+        )
+    return f"{alt} "
 
-# Maps nail upgrade index (0..4) to its in-game display name.
-# Index 0 is the starting weapon; index 4 is the fully upgraded Pure Nail.
+
 _NAIL_NAMES: dict[int, str] = {
     0: "Old Nail",
     1: "Sharpened Nail",
@@ -60,32 +45,12 @@ _NAIL_NAMES: dict[int, str] = {
     4: "Pure Nail",
 }
 
-# Fallback label shown when the nail tier value is outside the expected range.
 _NAIL_FALLBACK = "Unknown Nail"
-
-# Displayed when the save file does not record a current area.
 _AREA_FALLBACK = "Unknown Area"
 
 
-# =============================================================================
-# Helpers
-# =============================================================================
-
-
 def _format_play_time(seconds: float) -> str:
-    """Convert a raw play-time value in seconds to a compact HH:MM:SS string.
-
-    Parameters
-    ----------
-    seconds:
-        Total elapsed play time in seconds as stored in the save file.
-
-    Returns
-    -------
-    str
-        Formatted string such as "12:34:56". Hours are not zero-padded
-        so the string stays compact for short runs (e.g. "1:05:03").
-    """
+    """Convert play-time seconds to a HH:MM:SS string."""
     total = max(0, int(seconds))
     h, remainder = divmod(total, 3600)
     m, s = divmod(remainder, 60)
@@ -93,44 +58,12 @@ def _format_play_time(seconds: float) -> str:
 
 
 def _nail_label(nail_tier: int) -> str:
-    """Return the display name for the given nail upgrade tier.
-
-    Parameters
-    ----------
-    nail_tier:
-        Integer upgrade level from PlayerStats.nail_tier (0 to 4).
-
-    Returns
-    -------
-    str
-        Human-readable nail name, or a generic fallback for out-of-range values.
-    """
+    """Return the display name for a nail upgrade tier (0–4)."""
     return _NAIL_NAMES.get(nail_tier, _NAIL_FALLBACK)
 
 
-# =============================================================================
-# Component
-# =============================================================================
-
-
 def render_header() -> None:
-    """Render the top header bar with save summary, key stats, and spoiler toggle.
-
-    Exits immediately without rendering anything when no save is loaded, so
-    every page can call this unconditionally.
-
-    Layout
-    ------
-    The bar uses the .header-bar CSS class and is divided into three flex children:
-    - Left block: app title + play time.
-    - Centre block: Geo, Masks (current), Soul (current).
-    - Right block: current location + nail tier name.
-
-    Side effects
-    ------------
-    Writes an st.markdown block and a single-column st.toggle widget into
-    the active Streamlit container.
-    """
+    """Render the top header bar with save summary, key stats, and spoiler toggle."""
     if not st.session_state.get(SAVE_LOADED, False):
         return
 
@@ -141,15 +74,9 @@ def render_header() -> None:
     nail = _nail_label(stats.nail_tier)
     play_time = _format_play_time(stats.play_time)
 
-    geo_src = _icon_src("geo")
-    health_src = _icon_src("health")
-    soul_src = _icon_src("soul")
-    _img = lambda src, alt: (
-        f'<img src="{src}" alt="{alt}" '
-        'style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">'
-        if src
-        else f"{alt} "
-    )
+    geo_html = _icon_html("geo", "Geo")
+    health_html = _icon_html("health", "Masks")
+    soul_html = _icon_html("soul", "Soul")
 
     st.markdown(
         f"""
@@ -162,13 +89,13 @@ def render_header() -> None:
             </div>
             <div class="header-stats">
                 <span class="header-stat-item" title="Geo">
-                    {_img(geo_src, 'Geo')}<strong>{stats.geo:,}</strong>&nbsp;Geo
+                    {geo_html}<strong>{stats.geo:,}</strong>&nbsp;Geo
                 </span>
                 <span class="header-stat-item" title="Masks">
-                    {_img(health_src, 'Masks')}<strong>{stats.health}</strong>&nbsp;Masks
+                    {health_html}<strong>{stats.health}</strong>&nbsp;Masks
                 </span>
                 <span class="header-stat-item" title="Soul">
-                    {_img(soul_src, 'Soul')}<strong>{stats.soul}</strong>&nbsp;Soul
+                    {soul_html}<strong>{stats.soul}</strong>&nbsp;Soul
                 </span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:2px;">
@@ -184,12 +111,10 @@ def render_header() -> None:
         unsafe_allow_html=True,
     )
 
-    # Spoiler toggle is a native Streamlit widget so it remains interactive.
-    # It sits in a narrow right-aligned column to avoid pushing layout content.
     cols = st.columns([0.85, 0.15])
     with cols[1]:
         current = st.session_state.get(SPOILERS_ON, False)
-        label = "&#x1F441;&#xFE0F; Spoilers ON" if current else "&#x1F648; Spoilers OFF"
+        label = "Spoilers ON" if current else "Spoilers OFF"
         st.toggle(
             label,
             value=current,
@@ -198,16 +123,6 @@ def render_header() -> None:
         )
 
 
-# =============================================================================
-# Callbacks
-# =============================================================================
-
-
 def _toggle_spoilers() -> None:
-    """Sync the spoiler session flag from the native toggle widget state.
-
-    Streamlit calls this after the _spoiler_toggle widget value changes.
-    It writes the new value into SPOILERS_ON so all other components read
-    a consistent flag regardless of which key they consult.
-    """
+    """Sync the SPOILERS_ON session flag from the _spoiler_toggle widget."""
     st.session_state[SPOILERS_ON] = st.session_state.get("_spoiler_toggle", False)

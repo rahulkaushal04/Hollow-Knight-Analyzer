@@ -137,10 +137,7 @@ def _render_steps() -> None:
 
 
 def _render_save_location_help() -> None:
-    """Render a collapsible expander with OS-specific save file paths.
-
-    Save files are named user1.dat through user4.dat, matching slots 1 to 4.
-    """
+    """Render a collapsible expander with OS-specific save file paths."""
     with st.expander("📁 Where is my save file?"):
         for os_name, path in _SAVE_LOCATIONS.items():
             st.markdown(f"**{os_name}:**")
@@ -158,14 +155,7 @@ def _render_save_location_help() -> None:
 
 
 def show_upload_page() -> None:
-    """Render the full upload landing page.
-
-    Composed of four sections rendered in order:
-        1. Page header and subtitle
-        2. Centred file upload zone with error handling
-        3. Three-step instruction cards
-        4. Collapsible save file location help
-    """
+    """Render the full upload landing page."""
     _render_header()
     _render_uploader()
     _render_steps()

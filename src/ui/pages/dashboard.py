@@ -39,7 +39,11 @@ def show_dashboard() -> None:
     with c1:
         stat_card(
             "Bosses Defeated",
-            f"{defeated_bosses} / {total_bosses}" if spoilers_on else str(defeated_bosses),
+            (
+                f"{defeated_bosses} / {total_bosses}"
+                if spoilers_on
+                else str(defeated_bosses)
+            ),
             colour="red",
         )
     with c2:
@@ -83,9 +87,6 @@ def show_dashboard() -> None:
             minutes = (int(stats.play_time) % 3600) // 60
             _quick_stat("Play Time", f"{hours}h {minutes}m")
 
-    # Row 4 — Equipped Charms Strip
-
-    # Row 5 — Closest to Complete
     st.markdown("<br>", unsafe_allow_html=True)
     _render_closest_to_complete(breakdown)
 
@@ -104,7 +105,7 @@ def _quick_stat(label: str, value: str) -> None:
 
 def _render_breakdown_table(breakdown: CompletionBreakdown) -> None:
     """Render completion breakdown as a styled table."""
-    rows_html = ""
+    rows = []
     for cat in breakdown.categories:
         if cat.total == 0:
             continue
@@ -116,7 +117,8 @@ def _render_breakdown_table(breakdown: CompletionBreakdown) -> None:
         else:
             bar_colour = "#C44B4B"
 
-        rows_html += f"""
+        rows.append(
+            f"""
         <tr>
             <td style="padding:3px 6px;color:var(--text-primary);font-size:0.8rem;">
                 {cat.name}</td>
@@ -130,6 +132,8 @@ def _render_breakdown_table(breakdown: CompletionBreakdown) -> None:
             </td>
         </tr>
         """
+        )
+    rows_html = "".join(rows)
 
     st.markdown(
         f"""
