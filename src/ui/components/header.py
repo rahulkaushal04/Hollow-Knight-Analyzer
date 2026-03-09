@@ -19,10 +19,32 @@ produced here.
 
 from __future__ import annotations
 
+import base64
 import streamlit as st
+from pathlib import Path
+from functools import lru_cache
 
 from src.data.save_model import SaveData
 from src.core.session import SAVE_DATA, SAVE_LOADED, SPOILERS_ON
+
+# Root of the project (two levels above this file: src/ui/components → project root)
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+_ICONS_DIR = _PROJECT_ROOT / "assets" / "icons"
+
+
+@lru_cache(maxsize=None)
+def _icon_src(name: str) -> str:
+    """Return a base64 data-URI for the PNG icon *name* (without extension).
+
+    Falls back to an empty string if the file is missing so the img tag
+    simply renders nothing rather than raising an exception.
+    """
+    path = _ICONS_DIR / f"{name}.png"
+    if not path.exists():
+        return ""
+    data = base64.b64encode(path.read_bytes()).decode()
+    return f"data:image/png;base64,{data}"
+
 
 # =============================================================================
 # Constants
@@ -118,6 +140,16 @@ def render_header() -> None:
     nail = _nail_label(stats.nail_tier)
     play_time = _format_play_time(stats.play_time)
 
+    geo_src = _icon_src("geo")
+    health_src = _icon_src("health")
+    soul_src = _icon_src("soul")
+    _img = lambda src, alt: (
+        f'<img src="{src}" alt="{alt}" '
+        'style="width:18px;height:18px;vertical-align:middle;margin-right:4px;">'
+        if src
+        else f"{alt} "
+    )
+
     st.markdown(
         f"""
         <div class="header-bar">
@@ -129,13 +161,13 @@ def render_header() -> None:
             </div>
             <div class="header-stats">
                 <span class="header-stat-item" title="Geo">
-                    &#x1F4B0; {stats.geo:,}
+                    {_img(geo_src, 'Geo')}{stats.geo:,}
                 </span>
                 <span class="header-stat-item" title="Health">
-                    &#x2764;&#xFE0F; {stats.health}/{stats.max_health}
+                    {_img(health_src, 'Health')}{stats.health}/{stats.max_health}
                 </span>
                 <span class="header-stat-item" title="Soul">
-                    &#x1F52E; {stats.soul}/{stats.max_soul}
+                    {_img(soul_src, 'Soul')}{stats.soul}/{stats.max_soul}
                 </span>
                 <span class="header-stat-item" title="Play time">
                     &#x23F1;&#xFE0F; {play_time}

@@ -64,6 +64,58 @@ NAIL_TIER_NAMES = [
 ]
 NAIL_DAMAGE_BY_TIER = [5, 9, 13, 17, 21]
 
+# Maps the integer AreaName enum stored in the save file to a display name.
+# Values come from GlobalEnums.AreaName in the Hollow Knight source.
+_AREA_INDEX_NAMES: dict[int, str] = {
+    0: "",  # NONE
+    1: "King's Pass",  # TEST_AREA  (tutorial / start cave)
+    2: "King's Pass",  # KINGS_PASS (pre-Dirtmouth tunnel)
+    3: "Howling Cliffs",  # CLIFFS
+    4: "Dirtmouth",  # TOWN
+    5: "Forgotten Crossroads",  # CROSSROADS
+    6: "Greenpath",  # GREEN_PATH
+    7: "Queen's Gardens",  # ROYAL_GARDENS
+    8: "Fog Canyon",  # FOG_CANYON
+    9: "Fungal Wastes",  # WASTES
+    10: "Deepnest",  # DEEPNEST
+    11: "The Hive",  # HIVE
+    12: "Howling Cliffs",  # BONE_FOREST (upper cliffs sub-area)
+    13: "Ancient Basin",  # PALACE_GROUNDS (path to White Palace)
+    14: "Crystal Peak",  # MINES
+    15: "Resting Grounds",  # RESTING_GROUNDS
+    16: "City of Tears",  # CITY
+    17: "Dream World",  # DREAM_WORLD
+    18: "Colosseum of Fools",  # COLOSSEUM
+    19: "Abyss",  # ABYSS
+    20: "Royal Quarter",  # ROYAL_QUARTER
+    21: "White Palace",  # WHITE_PALACE
+    22: "Ancestral Mound",  # SHAMAN_TEMPLE
+    23: "Royal Waterways",  # WATERWAYS
+    24: "Kingdom's Edge",  # OUTSKIRTS
+    25: "Ancient Basin",  # ANCIENT_BASIN
+    26: "Godhome",  # GODS_GLORY
+    27: "Acid Lake",  # ACID_LAKE (Fog Canyon sub-area)
+    28: "Stone Sanctuary",  # NOEYES_TEMPLE
+    29: "Mantis Village",  # MANTIS_VILLAGE
+    30: "Forgotten Crossroads",  # RUINED_TOWN (infected variant)
+    31: "Distant Village",  # DISTANT_VILLAGE
+    32: "Abyss",  # ABYSS_DEEP
+    33: "Isma's Grove",  # ISMAS_GROVE
+    34: "King's Chamber",  # WYRMSKIN
+    35: "Watcher's Spire",  # LURIENS_TOWER
+    36: "Tower of Love",  # LOVE_TOWER
+    37: "Soul Sanctum",  # SOUL_SOCIETY
+}
+
+
+def _area_display_name(raw: Any) -> str:
+    """Convert a raw currentArea value (int or string) to a display name."""
+    try:
+        idx = int(raw)
+    except (TypeError, ValueError):
+        return str(raw) if raw else ""
+    return _AREA_INDEX_NAMES.get(idx, str(idx))
+
 
 def _g(d: dict, key: str, default: Any = None) -> Any:
     """Safe get from a dict — shorthand for .get() with a default."""
@@ -630,7 +682,7 @@ def _parse_player_stats(pd: dict) -> PlayerStats:
         charms_owned=_gi(pd, "charmsOwned"),
         overcharmed=_gb(pd, "overcharmed"),
         can_overcharm=_gb(pd, "canOvercharm"),
-        current_area=str(_g(pd, "currentArea", "")),
+        current_area=_area_display_name(_g(pd, "currentArea", "")),
         play_time=_gf(pd, "playTime"),
         completion_percent=_gi(pd, "completionPercentage"),
     )
