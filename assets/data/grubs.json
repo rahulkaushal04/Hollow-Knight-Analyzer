@@ -1,0 +1,416 @@
+[
+  {
+    "id": 1,
+    "area": "Forgotten Crossroads",
+    "sub_area": "Crossroads",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Trapped behind a Husk Guard enemy.",
+    "requires_ability": null
+  },
+  {
+    "id": 2,
+    "area": "Forgotten Crossroads",
+    "sub_area": "Crossroads",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Accessible without special abilities.",
+    "requires_ability": null
+  },
+  {
+    "id": 3,
+    "area": "Forgotten Crossroads",
+    "sub_area": "Crossroads",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Behind a breakable wall.",
+    "requires_ability": null
+  },
+  {
+    "id": 4,
+    "area": "Forgotten Crossroads",
+    "sub_area": "Crossroads",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Accessible via nail-bounce.",
+    "requires_ability": null
+  },
+  {
+    "id": 5,
+    "area": "Forgotten Crossroads",
+    "sub_area": "Near Stag Station",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mothwing Cloak or nail-bounce to reach.",
+    "requires_ability": "mothwing_cloak"
+  },
+  {
+    "id": 6,
+    "area": "Greenpath",
+    "sub_area": "Greenpath",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Past a moss block thrown by an enemy.",
+    "requires_ability": null
+  },
+  {
+    "id": 7,
+    "area": "Greenpath",
+    "sub_area": "Greenpath",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "In a side room in Greenpath.",
+    "requires_ability": null
+  },
+  {
+    "id": 8,
+    "area": "Greenpath",
+    "sub_area": "Near Moss Knight",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Past a Moss Knight in a hidden alcove.",
+    "requires_ability": null
+  },
+  {
+    "id": 9,
+    "area": "Greenpath",
+    "sub_area": "Greenpath",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "In a chamber in Greenpath.",
+    "requires_ability": null
+  },
+  {
+    "id": 10,
+    "area": "Fungal Wastes",
+    "sub_area": "Fungal Wastes",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mothwing Cloak to reach.",
+    "requires_ability": "mothwing_cloak"
+  },
+  {
+    "id": 11,
+    "area": "Fungal Wastes",
+    "sub_area": "Near Mantis Village",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mantis Claw to reach.",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 12,
+    "area": "City of Tears",
+    "sub_area": "City of Tears",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "In a side room in the City of Tears.",
+    "requires_ability": null
+  },
+  {
+    "id": 13,
+    "area": "City of Tears",
+    "sub_area": "City of Tears",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Past a Great Husk Sentry.",
+    "requires_ability": null
+  },
+  {
+    "id": 14,
+    "area": "City of Tears",
+    "sub_area": "City of Tears",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Desolate Dive to access.",
+    "requires_ability": "desolate_dive"
+  },
+  {
+    "id": 15,
+    "area": "City of Tears",
+    "sub_area": "City of Tears",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "In a hidden room in the City of Tears.",
+    "requires_ability": null
+  },
+  {
+    "id": 16,
+    "area": "City of Tears",
+    "sub_area": "City of Tears",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mantis Claw and Monarch Wings (or nail-bounce) to reach.",
+    "requires_ability": "monarch_wings"
+  },
+  {
+    "id": 17,
+    "area": "Crystal Peak",
+    "sub_area": "Crystal Peak",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mantis Claw and Crystal Heart.",
+    "requires_ability": "crystal_heart"
+  },
+  {
+    "id": 18,
+    "area": "Crystal Peak",
+    "sub_area": "Crystal Peak",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mothwing Cloak and Mantis Claw.",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 19,
+    "area": "Crystal Peak",
+    "sub_area": "Crystal Peak",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mantis Claw and Crystal Heart or Monarch Wings.",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 20,
+    "area": "Crystal Peak",
+    "sub_area": "Crystal Peak",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mothwing Cloak and Monarch Wings (or nail-bounce).",
+    "requires_ability": "mothwing_cloak"
+  },
+  {
+    "id": 21,
+    "area": "Crystal Peak",
+    "sub_area": "Crystal Peak",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mothwing Cloak and Mantis Claw.",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 22,
+    "area": "Crystal Peak",
+    "sub_area": "Crystal Peak",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mothwing Cloak.",
+    "requires_ability": "mothwing_cloak"
+  },
+  {
+    "id": 23,
+    "area": "Crystal Peak",
+    "sub_area": "Crystallised Mound",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mothwing Cloak, Mantis Claw, and Desolate Dive.",
+    "requires_ability": "desolate_dive"
+  },
+  {
+    "id": 24,
+    "area": "Resting Grounds",
+    "sub_area": "Crypts",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Desolate Dive to uncover.",
+    "requires_ability": "desolate_dive"
+  },
+  {
+    "id": 25,
+    "area": "Royal Waterways",
+    "sub_area": "Central Waterways",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "In the central part of the Royal Waterways.",
+    "requires_ability": null
+  },
+  {
+    "id": 26,
+    "area": "Royal Waterways",
+    "sub_area": "Royal Waterways",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Crystal Heart and Monarch Wings (or nail-bounce).",
+    "requires_ability": "monarch_wings"
+  },
+  {
+    "id": 27,
+    "area": "Royal Waterways",
+    "sub_area": "Isma's Grove Area",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Isma's Tear to access the acid section.",
+    "requires_ability": "ismas_tear"
+  },
+  {
+    "id": 28,
+    "area": "Howling Cliffs",
+    "sub_area": "Howling Cliffs",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mantis Claw to scale the cliffs.",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 29,
+    "area": "Kingdom's Edge",
+    "sub_area": "Lower Edge",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Desolate Dive to access.",
+    "requires_ability": "desolate_dive"
+  },
+  {
+    "id": 30,
+    "area": "Kingdom's Edge",
+    "sub_area": "Kingdom's Edge",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mantis Claw.",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 31,
+    "area": "Fog Canyon",
+    "sub_area": "Central Canyon",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Crystal Heart to cross the canyon.",
+    "requires_ability": "crystal_heart"
+  },
+  {
+    "id": 32,
+    "area": "Queen's Gardens",
+    "sub_area": "Queen's Gardens",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "In a room in Queen's Gardens.",
+    "requires_ability": null
+  },
+  {
+    "id": 33,
+    "area": "Queen's Gardens",
+    "sub_area": "Queen's Gardens",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mantis Claw, Crystal Heart, and Monarch Wings (or nail-bounce).",
+    "requires_ability": "monarch_wings"
+  },
+  {
+    "id": 34,
+    "area": "Queen's Gardens",
+    "sub_area": "Queen's Gardens",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mantis Claw.",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 35,
+    "area": "Deepnest",
+    "sub_area": "Deepnest",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mantis Claw and a breakable wall.",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 36,
+    "area": "Deepnest",
+    "sub_area": "Deepnest",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mantis Claw and Crystal Heart (or nail-bounce).",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 37,
+    "area": "Deepnest",
+    "sub_area": "Deepnest",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Behind a breakable wall, requires Monarch Wings or Crystal Heart.",
+    "requires_ability": "monarch_wings"
+  },
+  {
+    "id": 38,
+    "area": "Deepnest",
+    "sub_area": "Deepnest",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mothwing Cloak and Mantis Claw.",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 39,
+    "area": "Deepnest",
+    "sub_area": "Deepnest",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mothwing Cloak and Mantis Claw.",
+    "requires_ability": "mantis_claw"
+  },
+  {
+    "id": 40,
+    "area": "Ancient Basin",
+    "sub_area": "Ancient Basin",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Mothwing Cloak and Monarch Wings.",
+    "requires_ability": "monarch_wings"
+  },
+  {
+    "id": 41,
+    "area": "Ancient Basin",
+    "sub_area": "Ancient Basin",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Desolate Dive.",
+    "requires_ability": "desolate_dive"
+  },
+  {
+    "id": 42,
+    "area": "The Hive",
+    "sub_area": "Hive Interior",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Desolate Dive and Isma's Tear.",
+    "requires_ability": "ismas_tear"
+  },
+  {
+    "id": 43,
+    "area": "The Hive",
+    "sub_area": "Hive Interior",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "Requires Crystal Heart and Monarch Wings (or nail-bounce).",
+    "requires_ability": "monarch_wings"
+  },
+  {
+    "id": 44,
+    "area": "City of Tears",
+    "sub_area": "Tower of Love",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "In the Tower of Love. Requires Love Key.",
+    "requires_ability": "love_key"
+  },
+  {
+    "id": 45,
+    "area": "City of Tears",
+    "sub_area": "Tower of Love",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "In the Tower of Love. Requires Love Key.",
+    "requires_ability": "love_key"
+  },
+  {
+    "id": 46,
+    "area": "City of Tears",
+    "sub_area": "Tower of Love",
+    "map_pixel_x": null,
+    "map_pixel_y": null,
+    "spoiler_hint": "In the Tower of Love. Requires Love Key.",
+    "requires_ability": "love_key"
+  }
+]

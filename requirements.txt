@@ -1,0 +1,9 @@
+streamlit==1.55.0
+streamlit-folium==0.26.2
+folium==0.20.0
+plotly==6.6.0
+pandas==2.3.3
+pillow==12.1.1
+pycryptodome==3.23.0
+reportlab==4.4.10
+qrcode==8.2

@@ -1,0 +1,107 @@
+[
+  {
+    "type": "mask_shard",
+    "display_name": "Mask Shard",
+    "total": 16,
+    "per_upgrade": 4,
+    "count_key": "heartPieces",
+    "max_key": "heartPieceMax",
+    "collected_key": "heartPieceCollected",
+    "health_key": "health",
+    "description": "4 shards form one additional Mask, increasing maximum health. 16 total in Hallownest, yielding 4 additional Masks."
+  },
+  {
+    "type": "vessel_fragment",
+    "display_name": "Vessel Fragment",
+    "total": 9,
+    "per_upgrade": 3,
+    "count_key": "vesselFragments",
+    "max_key": "vesselFragmentMax",
+    "collected_key": "vesselFragmentCollected",
+    "reserve_key": "MPReserveCap",
+    "description": "3 fragments form one additional Soul Vessel, increasing maximum SOUL. 9 total in Hallownest, yielding 3 additional Vessels."
+  },
+  {
+    "type": "pale_ore",
+    "display_name": "Pale Ore",
+    "total": 6,
+    "count_key": "ore",
+    "description": "Ore used by the Nailsmith to upgrade the nail. 6 total in Hallownest."
+  },
+  {
+    "type": "dream_essence",
+    "display_name": "Dream Essence",
+    "count_key": "dreamOrbs",
+    "spent_key": "dreamOrbsSpent",
+    "rewards": [
+      {
+        "threshold": 100,
+        "reward_key": "dreamReward1",
+        "description": "Hallownest Seal"
+      },
+      {
+        "threshold": 200,
+        "reward_key": "dreamReward2",
+        "description": "Spirits' Glade opens"
+      },
+      {
+        "threshold": 300,
+        "reward_key": "dreamReward3",
+        "description": "Pale Ore"
+      },
+      {
+        "threshold": 500,
+        "reward_key": "dreamReward4",
+        "description": "Dream Wielder charm"
+      },
+      {
+        "threshold": 700,
+        "reward_key": "dreamReward5",
+        "description": "Vessel Fragment"
+      },
+      {
+        "threshold": 900,
+        "reward_key": "dreamReward6",
+        "description": "Dream Gate ability"
+      },
+      {
+        "threshold": 1200,
+        "reward_key": "dreamReward7",
+        "description": "Arcane Egg"
+      },
+      {
+        "threshold": 1500,
+        "reward_key": "dreamReward8",
+        "description": "Mask Shard"
+      },
+      {
+        "threshold": 1800,
+        "reward_key": "dreamReward9",
+        "description": "Awoken Dream Nail and Awakening achievement"
+      },
+      {
+        "threshold": 2400,
+        "reward_key": "mothDeparted",
+        "description": "Seer departs - Ascension achievement unlocked"
+      }
+    ],
+    "description": "Essence collected from defeated Dream Warriors and dream trees."
+  },
+  {
+    "type": "rancid_egg",
+    "display_name": "Rancid Egg",
+    "total": 20,
+    "count_key": "rancidEggs",
+    "sold_key": "jinnEggsSold",
+    "description": "Egg that can be given to Jiji to summon the Shade. 20 total in Hallownest."
+  },
+  {
+    "type": "grimm_flame",
+    "display_name": "Grimm Flame",
+    "total": 9,
+    "count_key": "flamesCollected",
+    "required_key": "flamesRequired",
+    "level_key": "grimmChildLevel",
+    "description": "Flames collected for the Grimm Troupe ritual. 3 flames required per Grimmchild upgrade level, 3 upgrades total (9 flames across the full quest)."
+  }
+]

@@ -1,0 +1,1059 @@
+/* =============================================================================
+   Hallownest Codex Theme
+   Hollow Knight Save Analyzer UI
+
+   Purpose:
+   This stylesheet defines the full visual system for the Hallownest Codex
+   interface. It overrides Streamlit defaults and implements a custom dark
+   themed UI with a game-inspired aesthetic drawn from Hollow Knight.
+
+   Architecture:
+   1. External Fonts
+   2. CSS Variables (Design Tokens)
+   3. Streamlit Overrides
+   4. Page Layout (Title, Subtitle, Header Bar)
+   5. Stat Cards
+   6. Progress Bars
+   7. Notch / Charm Slot System
+   8. Charm Grid
+   9. Boss Cards
+   10. Skill Tree
+   11. Quest Stages
+   12. Sidebar and Navigation
+   13. Completion Table and Tracker Table
+   14. Seer Reward Ladder
+   15. Upload Zone
+   16. Filter Buttons
+   17. Spoiler Blur
+   18. Responsive Overrides (Mobile)
+
+   Design Goals:
+   - Dark, atmospheric interface inspired by Hollow Knight
+   - Clean data visualization components
+   - Strong visual hierarchy for stats and progress
+   - Reusable, composable UI components
+   - Maintainable and modular CSS structure
+
+   Naming Conventions:
+   - Block-level components use BEM-style class names (e.g. .stat-card, .boss-card)
+   - State modifiers are flat suffixes (e.g. .owned, .equipped, .defeated)
+   - Color accent modifiers mirror CSS variable names (e.g. .blue, .gold, .purple)
+============================================================================= */
+
+
+/* =============================================================================
+   1. External Fonts
+   -----------------------------------------------------------------------------
+   Cinzel    -- Headings and titles. Evokes a fantasy / inscribed stone aesthetic.
+   Inter     -- Primary UI text, labels, and body copy. Clean and readable.
+   Fira Code -- Monospaced font for numeric values, stats, and technical data.
+
+   All three are loaded from Google Fonts with only the weights actually used
+   to keep the network payload small.
+============================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+
+/* =============================================================================
+   2. CSS Variables (Design Tokens)
+   -----------------------------------------------------------------------------
+   All colors, font stacks, and reusable values live here. Every component
+   below references these tokens rather than raw values. This makes global
+   retheming a single-file change.
+
+   Color Palette:
+   --bg             Background of the full app canvas (near-black)
+   --surface        Default card and panel background
+   --surface-high   Slightly elevated surface (table headers, hover states)
+   --border         Subtle border and separator color
+
+   Accent Colors:
+   --accent-blue    Primary interactive highlight
+   --accent-gold    Emphasis color for titles and active states
+   --accent-purple  Secondary accent, dream-world associations
+   --green          Success, defeated, claimed
+   --red            Failure, missing, overcharmed
+   --orange         Warning or mid-state indicators
+   --grey           Disabled, muted, placeholder text
+
+   Text:
+   --text-primary   Main readable text
+   --text-secondary Subdued labels and metadata
+
+   Typography:
+   --font-heading   Cinzel serif for display text
+   --font-body      Inter sans-serif for UI copy
+   --font-mono      Fira Code for numbers and data
+============================================================================= */
+
+:root {
+    /* Surface and background */
+    --bg:            #0A0A0F;
+    --surface:       #12121A;
+    --surface-high:  #1E1E2E;
+    --border:        #2A2A3E;
+
+    /* Accent colors */
+    --accent-blue:   #A3C5D8;
+    --accent-gold:   #C9A84C;
+    --accent-purple: #7B68EE;
+    --green:         #4A9B6F;
+    --red:           #C44B4B;
+    --orange:        #D4824A;
+    --grey:          #5A5A72;
+
+    /* Text */
+    --text-primary:   #E0E0E8;
+    --text-secondary: #9898B0;
+
+    /* Typography */
+    --font-heading: 'Cinzel', serif;
+    --font-body:    'Inter', sans-serif;
+    --font-mono:    'Fira Code', monospace;
+}
+
+
+/* =============================================================================
+   3. Streamlit Overrides
+   -----------------------------------------------------------------------------
+   Streamlit injects its own background, fonts, and chrome elements. These
+   rules neutralize those defaults so the Hallownest theme takes full control.
+
+   Overrides:
+   - App background and global font
+   - Sidebar background and text
+   - Top header bar (hidden)
+   - Hamburger menu (hidden)
+   - Footer (hidden)
+   - Deploy/toolbar button (hidden)
+============================================================================= */
+
+/* App-level canvas */
+.stApp {
+    background-color: var(--bg) !important;
+    font-family: var(--font-body) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Remove the default Streamlit top header bar */
+.stApp > header {
+    display: none !important;
+}
+
+/* Sidebar panel */
+[data-testid="stSidebar"] {
+    background-color: var(--surface) !important;
+    border-right: 1px solid var(--border) !important;
+}
+
+/* Ensure sidebar markdown inherits the correct text color */
+[data-testid="stSidebar"] .stMarkdown {
+    color: var(--text-primary) !important;
+}
+
+/* Hide the hamburger menu icon */
+#MainMenu {
+    display: none !important;
+}
+
+/* Hide the "Made with Streamlit" footer */
+footer {
+    display: none !important;
+}
+
+/* Hide the deploy / share toolbar */
+[data-testid="stToolbar"] {
+    display: none !important;
+}
+
+
+/* =============================================================================
+   4. Page Layout -- Title, Subtitle, Header Bar
+   -----------------------------------------------------------------------------
+   The page title uses Cinzel for the fantasy heading aesthetic. The subtitle
+   uses the monospaced font to give it a "data readout" feel. The header bar
+   is a sticky-feeling strip that shows key run stats at a glance.
+============================================================================= */
+
+/* Large display heading for each page */
+.page-title {
+    font-family: var(--font-heading) !important;
+    color: var(--accent-gold) !important;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+/* Supporting line beneath the page title */
+.page-subtitle {
+    font-family: var(--font-mono) !important;
+    color: var(--text-secondary) !important;
+    font-size: 0.95rem;
+    margin-top: 4px;
+    margin-bottom: 1rem;
+}
+
+/*
+   Header bar -- appears at the top of content pages.
+   Shows the section title on the left and key run stats on the right.
+   Uses glassmorphism (backdrop-filter blur) for depth.
+*/
+.header-bar {
+    background: rgba(18, 18, 26, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+/* Title text inside the header bar */
+.header-title {
+    font-family: var(--font-heading);
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* Flex row of quick-glance stats in the header bar */
+.header-stats {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+/* Individual label-value pair inside the header stats row */
+.header-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+
+/* =============================================================================
+   5. Stat Cards
+   -----------------------------------------------------------------------------
+   Stat cards are the primary data display unit. Each card shows one metric
+   with a large value, a label, and an optional subtitle.
+
+   Structure:
+     .stat-card.[color]
+       .stat-icon    -- emoji or icon character
+       .stat-value   -- large monospaced number
+       .stat-label   -- uppercase text label
+       .stat-subtitle -- small secondary note
+
+   Color variants control the left accent stripe color:
+   .blue, .gold, .purple, .green, .red, .orange
+============================================================================= */
+
+.stat-card {
+    background: rgba(30, 30, 46, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+
+    /* Clip the ::before pseudo-element accent stripe */
+    overflow: hidden;
+}
+
+/* Subtle lift on hover to reinforce interactivity */
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/*
+   Left accent stripe. Uses a pseudo-element so it sits inside
+   the card border-radius without requiring extra DOM nodes.
+*/
+.stat-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+/* Stripe color variants -- one class per accent color */
+.stat-card.blue::before   { background: var(--accent-blue); }
+.stat-card.gold::before   { background: var(--accent-gold); }
+.stat-card.purple::before { background: var(--accent-purple); }
+.stat-card.green::before  { background: var(--green); }
+.stat-card.red::before    { background: var(--red); }
+.stat-card.orange::before { background: var(--orange); }
+
+/* Emoji or icon displayed above the stat value */
+.stat-card .stat-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Primary number -- uses monospaced font for alignment stability */
+.stat-card .stat-value {
+    font-family: var(--font-mono) !important;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+/* Short uppercase category label below the value */
+.stat-card .stat-label {
+    font-family: var(--font-body) !important;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Optional small note below the label (e.g. "out of 45") */
+.stat-card .stat-subtitle {
+    font-family: var(--font-body) !important;
+    font-size: 0.8rem;
+    color: var(--grey);
+    margin-top: 0.3rem;
+}
+
+
+/* =============================================================================
+   6. Progress Bars
+   -----------------------------------------------------------------------------
+   Used throughout the completion tracker to visualize percentage progress.
+
+   Structure:
+     .progress-bar-container
+       .progress-bar-fill.[variant]
+
+   The fill width is set inline via the style attribute (e.g. style="width:72%").
+
+   Variants:
+   (default)  Blue-to-purple gradient
+   .gold      Gold gradient
+   .green     Green gradient
+   .red       Red gradient
+   .purple    Purple gradient
+============================================================================= */
+
+/* Outer track -- dark pill shape */
+.progress-bar-container {
+    background: var(--surface);
+    border-radius: 8px;
+    height: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    width: 100%;
+}
+
+/* Inner fill -- animated width transition on load */
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    transition: width 0.6s ease;
+}
+
+/* Color overrides for different progress contexts */
+.progress-bar-fill.gold   { background: linear-gradient(90deg, var(--accent-gold),   #E8C860); }
+.progress-bar-fill.green  { background: linear-gradient(90deg, var(--green),          #6BCF92); }
+.progress-bar-fill.red    { background: linear-gradient(90deg, var(--red),            #E06060); }
+.progress-bar-fill.purple { background: linear-gradient(90deg, var(--accent-purple),  #9B88FF); }
+
+
+/* =============================================================================
+   7. Notch / Charm Notch Slot System
+   -----------------------------------------------------------------------------
+   Notch slots visualize the charm notch bar from the game. Each slot is a
+   small rectangle that can be in one of three states:
+
+   States:
+   (empty)        Available but unfilled slot
+   .filled        Slot used by an equipped charm
+   .overcharmed   Slot in the overcharmed danger state (pulsing red animation)
+   .used          Alias for .filled
+   .available     Explicitly unoccupied
+============================================================================= */
+
+/* Horizontal row of notch slots */
+.notch-bar {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+/* Notch slot */
+.notch {
+    width: 20px;
+    height: 24px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.notch.filled {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+.notch.overcharmed {
+    background: var(--red);
+    border-color: var(--red);
+    animation: pulse-red 1.5s infinite;
+}
+
+/* Notch slot (inline, no container required) */
+.notch-slot {
+    width: 18px;
+    height: 22px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    display: inline-block;
+    margin: 0 1px;
+}
+
+.notch-slot.used {
+    background: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+.notch-slot.overcharmed {
+    background: var(--red);
+    border-color: var(--red);
+    animation: pulse-red 1.5s infinite;
+}
+
+.notch-slot.available {
+    background: var(--surface-high);
+    border-color: var(--grey);
+}
+
+/*
+   Pulsing animation for overcharmed state.
+   Alternates opacity to suggest the player is taking extra damage.
+*/
+@keyframes pulse-red {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.6; }
+}
+
+
+/* =============================================================================
+   8. Charm Grid
+   -----------------------------------------------------------------------------
+   Displays all 45 charms as a grid of icon slots. Each slot shows
+   the charm emoji and can carry a state modifier.
+
+   States:
+   .owned     Charm is collected (blue border, tinted background)
+   .missing   Charm not yet collected (greyed out)
+   .equipped  Charm is currently equipped (gold glow)
+   .broken    Charm is in broken/fragile state (red border)
+
+   The grid uses CSS Grid with auto-fitting columns so it reflows
+   gracefully at smaller screen widths via the responsive override.
+============================================================================= */
+
+.charm-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    margin: 1rem 0;
+}
+
+/* Base slot -- same size and shape regardless of state */
+.charm-slot {
+    width: 64px;
+    min-height: 64px;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: var(--surface);
+    position: relative;
+}
+
+/* Collected charm */
+.charm-slot.owned {
+    border-color: var(--accent-blue);
+    background: rgba(163, 197, 216, 0.1);
+    opacity: 1;
+}
+
+/* Missing charm -- dimmed and desaturated */
+.charm-slot.missing {
+    border-color: var(--border);
+    background: var(--surface);
+    opacity: 0.4;
+    filter: grayscale(1);
+}
+
+/* Currently equipped charm -- gold border with glow */
+.charm-slot.equipped {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 8px rgba(201, 168, 76, 0.3);
+    background: rgba(201, 168, 76, 0.1);
+}
+
+/* Fragile or broken charm state */
+.charm-slot.broken {
+    border-color: var(--red);
+    opacity: 0.7;
+}
+
+/* Slight scale-up on hover to indicate interactivity */
+.charm-slot:hover {
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+
+/* =============================================================================
+   9. Boss Cards
+   -----------------------------------------------------------------------------
+   Each boss card represents one encounter in the game. Cards show the boss
+   icon, name, area, and defeat status.
+
+   States:
+   .defeated       Boss defeated (green left border)
+   .not-defeated   Boss not yet defeated (red left border)
+   .dream-defeated Boss defeated in dream form (purple left border)
+
+   Structure:
+     .boss-card.[state]
+       .boss-icon    -- emoji or icon character
+       .boss-info
+         .boss-name  -- Cinzel heading
+         .boss-area  -- subdued area label
+       .boss-status  -- monospaced status string
+============================================================================= */
+
+.boss-card {
+    background: rgba(30, 30, 46, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.2s ease;
+}
+
+/* Purple border glow on hover for the mysterious quality of bosses */
+.boss-card:hover {
+    border-color: var(--accent-purple);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Left border state indicators */
+.boss-card.defeated      { border-left: 3px solid var(--green); }
+.boss-card.not-defeated  { border-left: 3px solid var(--red); }
+.boss-card.dream-defeated { border-left: 3px solid var(--accent-purple); }
+
+/* Large icon on the left of the card */
+.boss-card .boss-icon {
+    font-size: 2rem;
+    width: 48px;
+    text-align: center;
+}
+
+/* Middle text block */
+.boss-card .boss-info {
+    flex: 1;
+}
+
+/* Boss name in Cinzel for visual weight */
+.boss-card .boss-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Area / location label below the name */
+.boss-card .boss-area {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Defeat count or status on the right side */
+.boss-card .boss-status {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+
+/* =============================================================================
+   10. Skill Tree
+   -----------------------------------------------------------------------------
+   Displays movement abilities and spells as a node graph.
+   Nodes connect left-to-right using .skill-connector elements.
+
+   Node states:
+   .unlocked   Ability has been acquired (green border and tint)
+   .locked     Ability not yet available (dimmed)
+
+   Connector states:
+   .active     Connection between two unlocked nodes (gold color)
+   (default)   Connection involving a locked node (grey color)
+
+   Structure:
+     .skill-node.[state]
+       .skill-icon  -- emoji
+       .skill-name  -- small label
+     .skill-connector.[state]  -- arrow or line between nodes
+============================================================================= */
+
+/* Individual ability node */
+.skill-node {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    background: var(--surface);
+    text-align: center;
+    min-width: 90px;
+    transition: all 0.2s ease;
+}
+
+.skill-node.unlocked {
+    border-color: var(--green);
+    background: rgba(74, 155, 111, 0.1);
+}
+
+.skill-node.locked {
+    border-color: var(--border);
+    opacity: 0.5;
+}
+
+.skill-node .skill-icon {
+    font-size: 1.5rem;
+}
+
+.skill-node .skill-name {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-primary);
+}
+
+/* Connector arrow between skill nodes */
+.skill-connector {
+    display: flex;
+    align-items: center;
+    color: var(--grey);
+    font-size: 1.2rem;
+    padding: 0 4px;
+}
+
+/* Active connector (both adjacent nodes are unlocked) */
+.skill-connector.active {
+    color: var(--accent-gold);
+}
+
+/*
+   Legacy alias for skill-connector. Kept for backward compatibility
+   with older templates that used .skill-arrow.
+*/
+.skill-arrow {
+    color: var(--grey);
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.3rem;
+}
+
+
+/* =============================================================================
+   11. Quest Stages
+   -----------------------------------------------------------------------------
+   Small inline badges that indicate where the player is in an NPC questline.
+
+   States:
+   .completed   Questline finished (green badge)
+   .current     Player is at this stage right now (gold badge)
+   .locked      Stage not yet reached (grey badge)
+============================================================================= */
+
+/* Base badge -- inline pill shape */
+.quest-stage {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}
+
+.quest-stage.completed {
+    background: rgba(74, 155, 111, 0.15);
+    color: var(--green);
+    border: 1px solid var(--green);
+}
+
+.quest-stage.current {
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+}
+
+.quest-stage.locked {
+    background: rgba(90, 90, 114, 0.1);
+    color: var(--grey);
+    border: 1px solid var(--border);
+}
+
+
+/* =============================================================================
+   12. Sidebar and Navigation
+   -----------------------------------------------------------------------------
+   The sidebar contains the main navigation between analyzer pages.
+   Each link is styled as a left-bordered list item.
+
+   States:
+   (default)  Subdued text, no left border
+   :hover     Brighter text, elevated background
+   .active    Gold border and tint, bold text
+   .disabled  Dimmed and non-interactive (route not yet implemented)
+============================================================================= */
+
+/* Navigation link item */
+.nav-link {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    border-radius: 0 6px 6px 0;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+    background: var(--surface-high);
+}
+
+/* Currently selected page */
+.nav-link.active {
+    color: var(--accent-gold);
+    border-left-color: var(--accent-gold);
+    background: rgba(201, 168, 76, 0.08);
+    font-weight: 600;
+}
+
+/* Page that exists in the nav but has no route yet */
+.nav-link.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+
+/* =============================================================================
+   13. Completion Table and Tracker Table
+   -----------------------------------------------------------------------------
+   Two related table patterns:
+
+   .completion-row   -- flex row used for the category completion list
+   .tracker-table    -- full HTML table for sortable detailed data
+
+   The tracker table uses a custom header with hover color and a subtle
+   row highlight on hover. Overflow is hidden on the wrapper to clip
+   the top corner radii.
+============================================================================= */
+
+/* Flex-based completion row (not a real table) */
+.completion-row {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+}
+
+/* Category name column -- fixed width for alignment */
+.completion-row .cat-name {
+    width: 180px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+/* Right-aligned progress fraction (e.g. "12 / 16") */
+.completion-row .cat-progress {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    width: 80px;
+    text-align: right;
+    color: var(--text-secondary);
+}
+
+/* Full HTML table for sortable item lists */
+.tracker-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    /* Clips the top corners to honor border-radius with collapse borders */
+    overflow: hidden;
+}
+
+/* Column headers -- elevated background, click to sort */
+.tracker-table th {
+    text-align: left;
+    padding: 8px 12px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    background: var(--surface-high);
+    border-bottom: 2px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Visual feedback that the column header is clickable */
+.tracker-table th:hover {
+    color: var(--accent-gold);
+}
+
+/* Data cells */
+.tracker-table td {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+}
+
+/* Subtle gold tint on row hover for scanability */
+.tracker-table tr:hover td {
+    background: rgba(201, 168, 76, 0.04);
+}
+
+
+/* =============================================================================
+   14. Seer Reward Ladder
+   -----------------------------------------------------------------------------
+   Shows the Seer's essence reward milestones as a vertical ladder.
+   Each step has a left border that changes color based on claim status.
+
+   States:
+   .claimed    Reward already collected (green border, faint green tint)
+   .unclaimed  Not yet reached (grey border, dimmed)
+============================================================================= */
+
+/* Outer wrapper -- stacks steps vertically */
+.reward-ladder {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Individual milestone row */
+.reward-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--border);
+}
+
+.reward-step.claimed {
+    border-left-color: var(--green);
+    background: rgba(74, 155, 111, 0.05);
+}
+
+.reward-step.unclaimed {
+    border-left-color: var(--grey);
+    opacity: 0.6;
+}
+
+
+/* =============================================================================
+   15. Upload Zone
+   -----------------------------------------------------------------------------
+   The landing area shown before a save file is loaded. Uses a dashed border
+   to suggest a drop target.
+
+   On hover the border brightens to purple to indicate readiness.
+   The interior title uses Cinzel and the subtitle uses Inter.
+============================================================================= */
+
+.upload-zone {
+    background: rgba(30, 30, 46, 0.5);
+    border: 2px dashed var(--border);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+/* Highlight the drop zone on hover / drag-over */
+.upload-zone:hover {
+    border-color: var(--accent-purple);
+    background: rgba(30, 30, 46, 0.7);
+}
+
+/* Primary heading inside the upload zone */
+.upload-zone .upload-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+/* Instructions or hint text */
+.upload-zone .upload-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+
+/* =============================================================================
+   16. Filter Buttons
+   -----------------------------------------------------------------------------
+   Pill-shaped toggle buttons used to filter lists by category or status.
+
+   States:
+   (default)  Subdued border and text
+   .active    Purple tint and border -- filter is currently applied
+============================================================================= */
+
+.filter-btn {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Active filter -- purple to distinguish from gold selection states */
+.filter-btn.active {
+    background: rgba(123, 104, 238, 0.2);
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+}
+
+
+/* =============================================================================
+   17. Spoiler Blur
+   -----------------------------------------------------------------------------
+   Hides content behind a blur layer for players who want to avoid spoilers.
+   Hovering partially reduces the blur as a hint that the content exists.
+
+   .spoiler-blur        Applied to any element whose content should be hidden
+   .spoiler-placeholder Used when there is no underlying content yet (locked)
+============================================================================= */
+
+/* Blurred content wrapper -- click to reveal (requires JS toggle) */
+.spoiler-blur {
+    filter: blur(8px);
+    user-select: none;
+    transition: filter 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Partial reveal on hover as a hint */
+.spoiler-blur:hover {
+    filter: blur(4px);
+}
+
+/* Empty placeholder shown before content is available */
+.spoiler-placeholder {
+    background: rgba(30, 30, 46, 0.8);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    color: var(--grey);
+    font-style: italic;
+}
+
+
+/* =============================================================================
+   18. Responsive Overrides (Mobile -- max-width 768px)
+   -----------------------------------------------------------------------------
+   Adjustments for smaller screens:
+   - Charm grid drops to 4 columns of smaller slots
+   - Stat card values scale down
+   - Page title scales down
+   - Header bar stacks vertically
+   - Boss cards stack vertically and center-align
+============================================================================= */
+
+@media (max-width: 768px) {
+
+    /* Charm grid: 4 columns of 56px slots instead of 8 x 64px */
+    .charm-grid {
+        grid-template-columns: repeat(4, 56px);
+    }
+
+    /* Smaller stat value text to prevent overflow on narrow screens */
+    .stat-card .stat-value {
+        font-size: 1.5rem;
+    }
+
+    /* Smaller page heading on mobile */
+    .page-title {
+        font-size: 1.6rem !important;
+    }
+
+    /* Header bar stacks title above stats on narrow viewports */
+    .header-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Stats row wraps and centers on small screens */
+    .header-stats {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Boss card content stacks vertically and centers */
+    .boss-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}

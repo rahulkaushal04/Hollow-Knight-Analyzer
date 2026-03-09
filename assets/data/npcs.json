@@ -1,0 +1,190 @@
+[
+  {
+    "id": "zote",
+    "display_name": "Zote the Mighty",
+    "stages": [
+      { "label": "Found in Greenpath", "key": "zoteRescuedBuzzer" },
+      { "label": "Rescued from Deepnest", "key": "zoteRescuedDeepnest" },
+      { "label": "Defeated in Colosseum", "key": "zoteDefeated" },
+      { "label": "Spoke in Dirtmouth", "key": "zoteTownConvo" },
+      { "label": "Heard precept", "key": "zotePrecept" }
+    ],
+    "can_die": true,
+    "dead_key": "zoteDead"
+  },
+  {
+    "id": "bretta",
+    "display_name": "Bretta",
+    "stages": [
+      { "label": "Rescued from Fungal Wastes", "key": "brettaRescued" },
+      { "label": "Visited her bench", "key": "brettaSeenBench" },
+      { "label": "Visited her bed", "key": "brettaSeenBed" },
+      { "label": "Read diary entry 1", "key": "brettaSeenBenchDiary" },
+      { "label": "Read diary entry 2", "key": "brettaSeenBedDiary" },
+      { "label": "Left Dirtmouth", "key": "brettaLeftTown" }
+    ],
+    "can_die": false,
+    "dead_key": null
+  },
+  {
+    "id": "cloth",
+    "display_name": "Cloth",
+    "stages": [
+      { "label": "Met in Fungal Wastes", "key": "clothInTown" },
+      {
+        "label": "Met in Ancient Basin",
+        "key": "clothEncounteredQueensGarden"
+      },
+      { "label": "Fought alongside at Traitor Lord", "key": "clothKilled" },
+      { "label": "Spoke to ghost", "key": "clothGhostSpoken" }
+    ],
+    "can_die": true,
+    "dead_key": "clothKilled"
+  },
+  {
+    "id": "tiso",
+    "display_name": "Tiso",
+    "stages": [
+      { "label": "Met at bench", "key": "tisoEncounteredBench" },
+      { "label": "Met in Dirtmouth", "key": "tisoEncounteredTown" },
+      { "label": "Met at Blue Lake", "key": "tisoEncounteredLake" },
+      { "label": "Went to Colosseum", "key": "tisoEncounteredColosseum" },
+      { "label": "Found dead", "key": "tisoDead" }
+    ],
+    "can_die": true,
+    "dead_key": "tisoDead"
+  },
+  {
+    "id": "banker",
+    "display_name": "Millibelle the Banker",
+    "stages": [
+      { "label": "Opened account", "key": "bankerAccountPurchased" },
+      { "label": "Met at Pleasure House", "key": "bankerSpaMet" },
+      { "label": "Discovered theft", "key": "bankerTheft" }
+    ],
+    "can_die": false,
+    "dead_key": null
+  },
+  {
+    "id": "jiji",
+    "display_name": "Jiji",
+    "stages": [
+      { "label": "Met Jiji", "key": "jijiMet" },
+      { "label": "Door unlocked", "key": "jijiDoorUnlocked" },
+      { "label": "Offered shade", "key": "jijiShadeOffered" },
+      { "label": "Shade charm conversation", "key": "jijiShadeCharmConvo" }
+    ],
+    "can_die": false,
+    "dead_key": null
+  },
+  {
+    "id": "xun",
+    "display_name": "Grey Mourner (Xun)",
+    "stages": [
+      { "label": "Received flower", "key": "xunFlowerGiven" },
+      { "label": "Delivered flower", "key": "xunRewardGiven" }
+    ],
+    "can_die": false,
+    "dead_key": null
+  },
+  {
+    "id": "elderbug",
+    "display_name": "Elderbug",
+    "stages": [
+      { "label": "First conversation", "key": "elderbugHistory1" },
+      { "label": "Second conversation", "key": "elderbugHistory2" },
+      { "label": "Third conversation", "key": "elderbugHistory3" },
+      { "label": "Given flower", "key": "elderbugGaveFlower" }
+    ],
+    "can_die": false,
+    "dead_key": null
+  },
+  {
+    "id": "godseeker",
+    "display_name": "Godseeker",
+    "stages": [
+      { "label": "Unlocked Godhome", "key": "godseekerUnlocked" },
+      { "label": "Spoken when awake", "key": "godseekerSpokenAwake" }
+    ],
+    "can_die": false,
+    "dead_key": null
+  },
+  {
+    "id": "divine",
+    "display_name": "Divine",
+    "stages": [
+      { "label": "Arrived in Dirtmouth", "key": "divineInTown" },
+      { "label": "Fed Fragile Heart", "key": "fragileHealth_unbreakable" },
+      { "label": "Fed Fragile Greed", "key": "fragileGreed_unbreakable" },
+      { "label": "Fed Fragile Strength", "key": "fragileStrength_unbreakable" },
+      { "label": "Final conversation", "key": "divineFinalConvo" }
+    ],
+    "can_die": false,
+    "dead_key": null
+  },
+  {
+    "id": "grimm_troupe",
+    "display_name": "Grimm Troupe",
+    "stages": [
+      { "label": "Troupe arrived", "key": "troupeInTown" },
+      { "label": "Met Grimm", "key": "foughtGrimm" },
+      {
+        "label": "Collected all flames",
+        "key": "flamesCollected",
+        "note": "integer, check >= 3"
+      },
+      { "label": "Defeated Grimm", "key": "killedGrimm" },
+      { "label": "Nightmare King / Banished", "key": "defeatedNightmareGrimm" }
+    ],
+    "can_die": false,
+    "dead_key": null
+  },
+  {
+    "id": "sly",
+    "display_name": "Sly",
+    "stages": [
+      { "label": "Rescued from Crossroads", "key": "slyRescued" },
+      { "label": "Returned to Dirtmouth", "key": "openedSlyShop" },
+      { "label": "Shopkeeper's Key used", "key": "gaveSlykey" },
+      { "label": "Learned all Nail Arts", "key": "hasAllNailArts" }
+    ],
+    "can_die": false,
+    "dead_key": null
+  },
+  {
+    "id": "nailsmith",
+    "display_name": "Nailsmith",
+    "stages": [
+      { "label": "Met at smithy", "key": "metNailsmith" },
+      { "label": "Nail upgraded once", "key": "honedNail" },
+      {
+        "label": "Nail upgraded twice",
+        "key": "nailSmithUpgrades",
+        "note": "integer, check >= 2"
+      },
+      {
+        "label": "Nail upgraded thrice",
+        "key": "nailSmithUpgrades",
+        "note": "integer, check >= 3"
+      },
+      {
+        "label": "Pure Nail forged",
+        "key": "nailSmithUpgrades",
+        "note": "integer, check >= 4"
+      },
+      { "label": "Final interaction", "key": "nailsmithKilled" }
+    ],
+    "can_die": true,
+    "dead_key": "nailsmithKilled"
+  },
+  {
+    "id": "salubra",
+    "display_name": "Salubra",
+    "stages": [
+      { "label": "Met in Crossroads", "key": "salubraNotch1" },
+      { "label": "Bought Salubra's Blessing", "key": "salubraBlessing" }
+    ],
+    "can_die": false,
+    "dead_key": null
+  }
+]
