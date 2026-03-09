@@ -17,9 +17,9 @@ st.set_page_config(
 )
 
 from src.ui.theme import apply_theme
-from src.core.session import init_session, SAVE_LOADED, ACTIVE_PAGE
 from src.ui.pages.upload import show_upload_page
 from src.ui.pages.dashboard import show_dashboard
+from src.core.session import init_session, SAVE_LOADED, ACTIVE_PAGE
 
 # 2. Apply theme
 apply_theme()
