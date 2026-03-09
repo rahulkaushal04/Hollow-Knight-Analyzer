@@ -121,9 +121,10 @@ def render_header() -> None:
 
     Layout
     ------
-    The bar uses the .header-bar CSS class and is divided into two flex children:
-    - Left block: app title + area / nail tier subtitle.
-    - Right block: geo, health, soul, play time, then the spoiler toggle column.
+    The bar uses the .header-bar CSS class and is divided into three flex children:
+    - Left block: app title + play time.
+    - Centre block: Geo, Masks (current), Soul (current).
+    - Right block: current location + nail tier name.
 
     Side effects
     ------------
@@ -153,24 +154,29 @@ def render_header() -> None:
     st.markdown(
         f"""
         <div class="header-bar">
-            <div>
+            <div style="display:flex;flex-direction:column;justify-content:center;gap:2px;">
                 <span class="header-title">Hallownest Codex</span>
-                <span style="color:var(--text-secondary);font-size:0.85rem;margin-left:12px;">
-                    {area} &bull; {nail}
+                <span style="color:var(--text-secondary);font-size:0.8rem;">
+                    &#x23F1;&#xFE0F; {play_time}
                 </span>
             </div>
             <div class="header-stats">
                 <span class="header-stat-item" title="Geo">
-                    {_img(geo_src, 'Geo')}{stats.geo:,}
+                    {_img(geo_src, 'Geo')}<strong>{stats.geo:,}</strong>&nbsp;Geo
                 </span>
-                <span class="header-stat-item" title="Health">
-                    {_img(health_src, 'Health')}{stats.health}/{stats.max_health}
+                <span class="header-stat-item" title="Masks">
+                    {_img(health_src, 'Masks')}<strong>{stats.health}</strong>&nbsp;Masks
                 </span>
                 <span class="header-stat-item" title="Soul">
-                    {_img(soul_src, 'Soul')}{stats.soul}/{stats.max_soul}
+                    {_img(soul_src, 'Soul')}<strong>{stats.soul}</strong>&nbsp;Soul
                 </span>
-                <span class="header-stat-item" title="Play time">
-                    &#x23F1;&#xFE0F; {play_time}
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:2px;">
+                <span style="color:var(--text-primary);font-size:0.9rem;font-weight:600;">
+                    {area}
+                </span>
+                <span style="color:var(--text-secondary);font-size:0.8rem;">
+                    {nail}
                 </span>
             </div>
         </div>
