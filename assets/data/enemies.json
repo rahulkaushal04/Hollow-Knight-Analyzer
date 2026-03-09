@@ -1,0 +1,826 @@
+[
+  {
+    "id": "crawlid",
+    "display_name": "Crawlid",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedCrawler",
+    "kills_key": "killsCrawler",
+    "journal_note": "A simple-minded creature that roams the caverns, barely aware of its own surroundings."
+  },
+  {
+    "id": "vengefly",
+    "display_name": "Vengefly",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedBuzzer",
+    "kills_key": "killsBuzzer",
+    "journal_note": "Vicious, winged predator that attacks by diving at its prey."
+  },
+  {
+    "id": "gruzzer",
+    "display_name": "Gruzzer",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedBigFly",
+    "kills_key": "killsBigFly",
+    "journal_note": "Lazy, buzzing creature content to slowly drift through the caverns."
+  },
+  {
+    "id": "tiktik",
+    "display_name": "Tiktik",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedClimber",
+    "kills_key": "killsClimber",
+    "journal_note": "Crawls along walls and ceilings, oblivious to the world around it."
+  },
+  {
+    "id": "goam",
+    "display_name": "Goam",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedGiantHopper",
+    "kills_key": "killsGiantHopper",
+    "journal_note": "Large, ancient creature that burrows through the ground."
+  },
+  {
+    "id": "baldur",
+    "display_name": "Baldur",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedBouncer",
+    "kills_key": "killsBouncer",
+    "journal_note": "Rolls into a ball to defend itself. Patient hunters wait for it to unroll."
+  },
+  {
+    "id": "elder_baldur",
+    "display_name": "Elder Baldur",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedBouncer",
+    "kills_key": "killsBouncer",
+    "journal_note": "An older, larger Baldur. Much tougher but just as slow-witted."
+  },
+  {
+    "id": "aspid_hunter",
+    "display_name": "Aspid Hunter",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedSpitter",
+    "kills_key": "killsSpitter",
+    "journal_note": "Spits venom at intruders from a distance."
+  },
+  {
+    "id": "aspid_mother",
+    "display_name": "Aspid Mother",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedSuperSpitter",
+    "kills_key": "killsSuperSpitter",
+    "journal_note": "Produces young from its swollen body when threatened."
+  },
+  {
+    "id": "leaping_husk",
+    "display_name": "Leaping Husk",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedZombieLeaper",
+    "kills_key": "killsZombieLeaper",
+    "journal_note": "Reanimated husk that attacks by leaping at prey."
+  },
+  {
+    "id": "husk_hornhead",
+    "display_name": "Husk Hornhead",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedZombieHornhead",
+    "kills_key": "killsZombieHornhead",
+    "journal_note": "Husk with a hard, pointed horn on its head."
+  },
+  {
+    "id": "husk_bully",
+    "display_name": "Husk Bully",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedZombieBarger",
+    "kills_key": "killsZombieBarger",
+    "journal_note": "A sturdy husk that charges forward to attack."
+  },
+  {
+    "id": "husk_wanderer",
+    "display_name": "Husk Wanderer",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedZombieShield",
+    "kills_key": "killsZombieShield",
+    "journal_note": "A wandering husk carrying a broken shield."
+  },
+  {
+    "id": "moss_charger",
+    "display_name": "Moss Charger",
+    "area": "Greenpath",
+    "killed_key": "killedMossCharger",
+    "kills_key": "killsMossCharger",
+    "journal_note": "Plant-like creature that charges at intruders to protect its territory."
+  },
+  {
+    "id": "moss_knight",
+    "display_name": "Moss Knight",
+    "area": "Greenpath",
+    "killed_key": "killedMossKnight",
+    "kills_key": "killsMossKnight",
+    "journal_note": "Once a proud warrior, now overgrown with moss and reduced to a mindless guardian."
+  },
+  {
+    "id": "mossy_vagabond",
+    "display_name": "Mossy Vagabond",
+    "area": "Greenpath",
+    "killed_key": "killedMossWalker",
+    "kills_key": "killsMossWalker",
+    "journal_note": "Wanders through Greenpath with a thick coating of moss."
+  },
+  {
+    "id": "squit",
+    "display_name": "Squit",
+    "area": "Greenpath",
+    "killed_key": "killedMosquito",
+    "kills_key": "killsMosquito",
+    "journal_note": "Flying creature that dashes at its prey with its sharp proboscis."
+  },
+  {
+    "id": "obble",
+    "display_name": "Obble",
+    "area": "Greenpath",
+    "killed_key": "killedBlobFlyer",
+    "kills_key": "killsBlobFlyer",
+    "journal_note": "Round, harmless creature that drifts slowly through the air."
+  },
+  {
+    "id": "gulka",
+    "display_name": "Gulka",
+    "area": "Greenpath",
+    "killed_key": "killedPlantShooter",
+    "kills_key": "killsPlantShooter",
+    "journal_note": "Immobile plant that fires barbs at passing creatures."
+  },
+  {
+    "id": "massive_moss_charger",
+    "display_name": "Massive Moss Charger",
+    "area": "Greenpath",
+    "killed_key": "killedMegaMossCharger",
+    "kills_key": "killsMegaMossCharger",
+    "journal_note": "A group of Moss Chargers fused together into one massive beast."
+  },
+  {
+    "id": "shrumal_warrior",
+    "display_name": "Shrumal Warrior",
+    "area": "Fungal Wastes",
+    "killed_key": "killedMushroomTurret",
+    "kills_key": "killsMushroomTurret",
+    "journal_note": "Fungal creature that attacks at range with toxic projectiles."
+  },
+  {
+    "id": "shrumal_ogre",
+    "display_name": "Shrumal Ogre",
+    "area": "Fungal Wastes",
+    "killed_key": "killedMushroomBrawler",
+    "kills_key": "killsMushroomBrawler",
+    "journal_note": "Large fungal fighter that swings its fists in wide arcs."
+  },
+  {
+    "id": "mantis_warrior",
+    "display_name": "Mantis Warrior",
+    "area": "Fungal Wastes",
+    "killed_key": "killedMantis",
+    "kills_key": "killsMantis",
+    "journal_note": "Quick-moving warrior of the Mantis tribe."
+  },
+  {
+    "id": "mantis_youth",
+    "display_name": "Mantis Youth",
+    "area": "Fungal Wastes",
+    "killed_key": "killedMantisHeavyFlyer",
+    "kills_key": "killsMantisHeavyFlyer",
+    "journal_note": "Young Mantis training to become a warrior."
+  },
+  {
+    "id": "fungoon",
+    "display_name": "Fungoon",
+    "area": "Fungal Wastes",
+    "killed_key": "killedFungoonBaby",
+    "kills_key": "killsFungoonBaby",
+    "journal_note": "Balloon-like fungal creature that drifts through the caverns."
+  },
+  {
+    "id": "sporg",
+    "display_name": "Sporg",
+    "area": "Fungal Wastes",
+    "killed_key": "killedMushroomRoller",
+    "kills_key": "killsMushroomRoller",
+    "journal_note": "Rolling fungal creature that bounces through the caverns."
+  },
+  {
+    "id": "husk_guard",
+    "display_name": "Husk Guard",
+    "area": "City of Tears",
+    "killed_key": "killedHeavyMantis",
+    "kills_key": "killsHeavyMantis",
+    "journal_note": "Heavily armoured guard of the City of Tears."
+  },
+  {
+    "id": "husk_sentry",
+    "display_name": "Husk Sentry",
+    "area": "City of Tears",
+    "killed_key": "killedZombieGuard",
+    "kills_key": "killsZombieGuard",
+    "journal_note": "Patrolling sentry of the City, still loyal in death."
+  },
+  {
+    "id": "great_husk_sentry",
+    "display_name": "Great Husk Sentry",
+    "area": "City of Tears",
+    "killed_key": "killedZombieHive",
+    "kills_key": "killsZombieHive",
+    "journal_note": "Massive sentry of the City wielding a heavy weapon."
+  },
+  {
+    "id": "winged_sentry",
+    "display_name": "Winged Sentry",
+    "area": "City of Tears",
+    "killed_key": "killedFlyingSentrySword",
+    "kills_key": "killsFlyingSentrySword",
+    "journal_note": "Flying sentry that patrols the upper halls of the City."
+  },
+  {
+    "id": "lance_sentry",
+    "display_name": "Lance Sentry",
+    "area": "City of Tears",
+    "killed_key": "killedFlyingSentryJavelin",
+    "kills_key": "killsFlyingSentryJavelin",
+    "journal_note": "Sentry armed with a long lance, attacking from range."
+  },
+  {
+    "id": "soul_twister",
+    "display_name": "Soul Twister",
+    "area": "City of Tears",
+    "killed_key": "killedMageKnight",
+    "kills_key": "killsMageKnight",
+    "journal_note": "Scholar of the Soul Sanctum who wields powerful magic."
+  },
+  {
+    "id": "soul_warrior",
+    "display_name": "Soul Warrior",
+    "area": "City of Tears",
+    "killed_key": "killedMage",
+    "kills_key": "killsMage",
+    "journal_note": "Warrior of the Soul Sanctum, attacks with teleportation and Soul blasts."
+  },
+  {
+    "id": "mistake",
+    "display_name": "Mistake",
+    "area": "City of Tears",
+    "killed_key": "killedMageBlob",
+    "kills_key": "killsMageBlob",
+    "journal_note": "Failed experiment of the Soul Sanctum scholars."
+  },
+  {
+    "id": "folly",
+    "display_name": "Folly",
+    "area": "City of Tears",
+    "killed_key": "killedMageBalloon",
+    "kills_key": "killsMageBalloon",
+    "journal_note": "Another failure from the experiments of the Soul Sanctum."
+  },
+  {
+    "id": "crystal_hunter",
+    "display_name": "Crystal Hunter",
+    "area": "Crystal Peak",
+    "killed_key": "killedCrystalCrawler",
+    "kills_key": "killsCrystalCrawler",
+    "journal_note": "Fires crystal projectiles from a distance."
+  },
+  {
+    "id": "crystal_crawler",
+    "display_name": "Crystal Crawler",
+    "area": "Crystal Peak",
+    "killed_key": "killedCrystalFlyer",
+    "kills_key": "killsCrystalFlyer",
+    "journal_note": "Crawls along surfaces with crystals embedded in its body."
+  },
+  {
+    "id": "husk_miner",
+    "display_name": "Husk Miner",
+    "area": "Crystal Peak",
+    "killed_key": "killedZombieMiner",
+    "kills_key": "killsZombieMiner",
+    "journal_note": "Former miner now reduced to a mindless husk."
+  },
+  {
+    "id": "glimback",
+    "display_name": "Glimback",
+    "area": "Crystal Peak",
+    "killed_key": "killedMinesCrawler",
+    "kills_key": "killsMinesCrawler",
+    "journal_note": "Slow-moving crystal creature with a tough exterior."
+  },
+  {
+    "id": "flukefly",
+    "display_name": "Flukefly",
+    "area": "Royal Waterways",
+    "killed_key": "killedFlukefly",
+    "kills_key": "killsFlukefly",
+    "journal_note": "Small fluke offspring that swarms through the waterways."
+  },
+  {
+    "id": "flukemon",
+    "display_name": "Flukemon",
+    "area": "Royal Waterways",
+    "killed_key": "killedFlukeman",
+    "kills_key": "killsFlukeman",
+    "journal_note": "Larger fluke creature dwelling in the Waterways."
+  },
+  {
+    "id": "pilflip",
+    "display_name": "Pilflip",
+    "area": "Royal Waterways",
+    "killed_key": "killedInflater",
+    "kills_key": "killsInflater",
+    "journal_note": "Inflates its body to float, then crashes down on prey."
+  },
+  {
+    "id": "hwurmp",
+    "display_name": "Hwurmp",
+    "area": "Royal Waterways",
+    "killed_key": "killedFatFluke",
+    "kills_key": "killsFatFluke",
+    "journal_note": "Fat, lazy fluke that explodes violently when killed."
+  },
+  {
+    "id": "dirtcarver",
+    "display_name": "Dirtcarver",
+    "area": "Deepnest",
+    "killed_key": "killedBurstingBouncer",
+    "kills_key": "killsBurstingBouncer",
+    "journal_note": "Vicious creature that burrows through dirt to ambush prey."
+  },
+  {
+    "id": "stalking_devout",
+    "display_name": "Stalking Devout",
+    "area": "Deepnest",
+    "killed_key": "killedBigCentipede",
+    "kills_key": "killsBigCentipede",
+    "journal_note": "Worshipper of the Beast. Attacks with sharp claws."
+  },
+  {
+    "id": "nosk_mimic",
+    "display_name": "Nosk",
+    "area": "Deepnest",
+    "killed_key": "killedMimicSpider",
+    "kills_key": "killsMimicSpider",
+    "journal_note": "A terrifying creature that mimics the shape of other beings."
+  },
+  {
+    "id": "deepling",
+    "display_name": "Deepling",
+    "area": "Deepnest",
+    "killed_key": "killedMiniSpider",
+    "kills_key": "killsMiniSpider",
+    "journal_note": "Offspring of the beasts dwelling in Deepnest."
+  },
+  {
+    "id": "deephunter",
+    "display_name": "Deephunter",
+    "area": "Deepnest",
+    "killed_key": "killedSpiderFlyer",
+    "kills_key": "killsSpiderFlyer",
+    "journal_note": "Flying predator of Deepnest that swoops at prey."
+  },
+  {
+    "id": "little_weaver",
+    "display_name": "Little Weaver",
+    "area": "Deepnest",
+    "killed_key": "killedSpiderCorpse",
+    "kills_key": "killsSpiderCorpse",
+    "journal_note": "Small spider that scurries along the ground."
+  },
+  {
+    "id": "carver_hatcher",
+    "display_name": "Carver Hatcher",
+    "area": "Deepnest",
+    "killed_key": "killedBurstingZombie",
+    "kills_key": "killsBurstingZombie",
+    "journal_note": "Hatcher that spawns Dirtcarvers from its body."
+  },
+  {
+    "id": "infected_balloon",
+    "display_name": "Infected Balloon",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedInfectedKnight",
+    "kills_key": "killsInfectedKnight",
+    "journal_note": "Infected creature that floats through the air."
+  },
+  {
+    "id": "violent_husk",
+    "display_name": "Violent Husk",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedZombieRunner",
+    "kills_key": "killsZombieRunner",
+    "journal_note": "An aggressive husk that runs at intruders."
+  },
+  {
+    "id": "volatile_gruzzer",
+    "display_name": "Volatile Gruzzer",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedBigFly",
+    "kills_key": "killsBigFly",
+    "journal_note": "A Gruzzer infected by the orange light. Explodes on contact."
+  },
+  {
+    "id": "boofly",
+    "display_name": "Boofly",
+    "area": "Greenpath",
+    "killed_key": "killedZapBug",
+    "kills_key": "killsZapBug",
+    "journal_note": "Glowing creature that explodes on death."
+  },
+  {
+    "id": "primal_aspid",
+    "display_name": "Primal Aspid",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedSuperSpitter",
+    "kills_key": "killsSuperSpitter",
+    "journal_note": "Ancient, powerful Aspid that spits triple projectiles."
+  },
+  {
+    "id": "hoppers",
+    "display_name": "Hopper",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedHopper",
+    "kills_key": "killsHopper",
+    "journal_note": "Mindless creature that hops around wildly."
+  },
+  {
+    "id": "great_hopper",
+    "display_name": "Great Hopper",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedGiantHopper",
+    "kills_key": "killsGiantHopper",
+    "journal_note": "Massive hopping creature. Extremely dangerous."
+  },
+  {
+    "id": "belfly",
+    "display_name": "Belfly",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedCeilingDropper",
+    "kills_key": "killsCeilingDropper",
+    "journal_note": "Hangs from the ceiling and drops down to explode near prey."
+  },
+  {
+    "id": "armoured_squit",
+    "display_name": "Armoured Squit",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedColMosquito",
+    "kills_key": "killsColMosquito",
+    "journal_note": "Heavily armoured Squit from the Colosseum of Fools."
+  },
+  {
+    "id": "battle_obble",
+    "display_name": "Battle Obble",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedColRoller",
+    "kills_key": "killsColRoller",
+    "journal_note": "Aggressive Obble trained for the Colosseum."
+  },
+  {
+    "id": "oblobble",
+    "display_name": "Oblobble",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedOblobble",
+    "kills_key": "killsOblobble",
+    "journal_note": "Pair of Obbles that attack together."
+  },
+  {
+    "id": "shielded_fool",
+    "display_name": "Shielded Fool",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedColShield",
+    "kills_key": "killsColShield",
+    "journal_note": "Colosseum fighter with a protective shield."
+  },
+  {
+    "id": "sturdy_fool",
+    "display_name": "Sturdy Fool",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedColWorm",
+    "kills_key": "killsColWorm",
+    "journal_note": "Tough Colosseum fighter that takes many hits."
+  },
+  {
+    "id": "winged_fool",
+    "display_name": "Winged Fool",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedColFlyingSentry",
+    "kills_key": "killsColFlyingSentry",
+    "journal_note": "Flying Colosseum champion."
+  },
+  {
+    "id": "heavy_fool",
+    "display_name": "Heavy Fool",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedColMiner",
+    "kills_key": "killsColMiner",
+    "journal_note": "Massive Colosseum fighter with a heavy weapon."
+  },
+  {
+    "id": "death_loodle",
+    "display_name": "Death Loodle",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedColHopper",
+    "kills_key": "killsColHopper",
+    "journal_note": "Small, vicious creature in the Colosseum."
+  },
+  {
+    "id": "volt_twister",
+    "display_name": "Volt Twister",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedColRoller",
+    "kills_key": "killsColRoller",
+    "journal_note": "Electric Colosseum fighter."
+  },
+  {
+    "id": "lifeseeed",
+    "display_name": "Lifeseeed",
+    "area": "Greenpath",
+    "killed_key": "killedPlantShooter",
+    "kills_key": "killsPlantShooter",
+    "journal_note": "Floating seed pod that attacks with projectiles."
+  },
+  {
+    "id": "soul_master_entry",
+    "display_name": "Soul Master",
+    "area": "City of Tears",
+    "killed_key": "killedMageLord",
+    "kills_key": "killsMageLord",
+    "journal_note": "Head of the Soul Sanctum. Obsessed with harnessing SOUL."
+  },
+  {
+    "id": "hive_soldier",
+    "display_name": "Hive Soldier",
+    "area": "The Hive",
+    "killed_key": "killedBigBee",
+    "kills_key": "killsBigBee",
+    "journal_note": "Loyal soldier of the Hive that attacks intruders on sight."
+  },
+  {
+    "id": "hive_guardian",
+    "display_name": "Hive Guardian",
+    "area": "The Hive",
+    "killed_key": "killedBeeStinger",
+    "kills_key": "killsBeeStinger",
+    "journal_note": "Elite guardian of the Hive with a thick, armoured shell."
+  },
+  {
+    "id": "hiveling",
+    "display_name": "Hiveling",
+    "area": "The Hive",
+    "killed_key": "killedBeeHatchling",
+    "kills_key": "killsBeeHatchling",
+    "journal_note": "Young bee that swarms in groups."
+  },
+  {
+    "id": "moss_flyer",
+    "display_name": "Moss Flyer",
+    "area": "Greenpath",
+    "killed_key": "killedMossFlyer",
+    "kills_key": "killsMossFlyer",
+    "journal_note": "Gentle flying insect that drifts through Greenpath."
+  },
+  {
+    "id": "sharp_baldur",
+    "display_name": "Sharp Baldur",
+    "area": "Greenpath",
+    "killed_key": "killedBouncer",
+    "kills_key": "killsBouncer",
+    "journal_note": "Baldur covered in sharp thorns."
+  },
+  {
+    "id": "soul_twister_entry",
+    "display_name": "Soul Twister",
+    "area": "City of Tears",
+    "killed_key": "killedMageKnight",
+    "kills_key": "killsMageKnight",
+    "journal_note": "Senior scholar of the Soul Sanctum. Teleports and attacks with SOUL."
+  },
+  {
+    "id": "kingsmould",
+    "display_name": "Kingsmould",
+    "area": "White Palace",
+    "killed_key": "killedWhiteRoyal",
+    "kills_key": "killsWhiteRoyal",
+    "journal_note": "Royal guard of the White Palace, created from Void."
+  },
+  {
+    "id": "wingmould",
+    "display_name": "Wingmould",
+    "area": "White Palace",
+    "killed_key": "killedRoyalGuard",
+    "kills_key": "killsRoyalGuard",
+    "journal_note": "Flying guard of the White Palace."
+  },
+  {
+    "id": "sibling",
+    "display_name": "Sibling",
+    "area": "The Abyss",
+    "killed_key": "killedSibling",
+    "kills_key": "killsSibling",
+    "journal_note": "Shade-like creature dwelling in the Abyss."
+  },
+  {
+    "id": "shadow_creeper",
+    "display_name": "Shadow Creeper",
+    "area": "The Abyss",
+    "killed_key": "killedAbyssCrawler",
+    "kills_key": "killsAbyssCrawler",
+    "journal_note": "Dark creature that crawls along surfaces in the Abyss."
+  },
+  {
+    "id": "lightseed",
+    "display_name": "Lightseed",
+    "area": "Infected Crossroads",
+    "killed_key": "killedOrangeBalloon",
+    "kills_key": "killsOrangeBalloon",
+    "journal_note": "Crystal seed that drifts through caverns, glowing with light."
+  },
+  {
+    "id": "infected_crossroads_vengefly",
+    "display_name": "Furious Vengefly",
+    "area": "Infected Crossroads",
+    "killed_key": "killedAngryBuzzer",
+    "kills_key": "killsAngryBuzzer",
+    "journal_note": "Vengefly driven to fury by the Infection."
+  },
+  {
+    "id": "entombed_husk",
+    "display_name": "Entombed Husk",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedZombieMiner",
+    "kills_key": "killsZombieMiner",
+    "journal_note": "Husk trapped within the walls, still able to reach out."
+  },
+  {
+    "id": "myla",
+    "display_name": "Myla",
+    "area": "Crystal Peak",
+    "killed_key": null,
+    "kills_key": null,
+    "journal_note": "Friendly miner. The infection slowly consumed her mind."
+  },
+  {
+    "id": "loodle",
+    "display_name": "Loodle",
+    "area": "Queen's Gardens",
+    "killed_key": "killedOrangeScuttler",
+    "kills_key": "killsOrangeScuttler",
+    "journal_note": "Small creature that scurries along the ground."
+  },
+  {
+    "id": "traitor_mantis",
+    "display_name": "Traitor Mantis",
+    "area": "Queen's Gardens",
+    "killed_key": "killedMantis",
+    "kills_key": "killsMantis",
+    "journal_note": "Mantis that betrayed its tribe to serve the Traitor Lord."
+  },
+  {
+    "id": "spiny_husk",
+    "display_name": "Spiny Husk",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedGreatShieldZombie",
+    "kills_key": "killsGreatShieldZombie",
+    "journal_note": "Husk covered in sharp spines. Damages those who touch it."
+  },
+  {
+    "id": "gluttonous_husk",
+    "display_name": "Gluttonous Husk",
+    "area": "City of Tears",
+    "killed_key": "killedSentryFat",
+    "kills_key": "killsSentryFat",
+    "journal_note": "Bloated husk that charges at prey."
+  },
+  {
+    "id": "gorgeous_husk_enemy",
+    "display_name": "Gorgeous Husk",
+    "area": "City of Tears",
+    "killed_key": "killedGorgeousHusk",
+    "kills_key": "killsGorgeousHusk",
+    "journal_note": "A wealthy husk decorated in gold."
+  },
+  {
+    "id": "grub_mimic",
+    "display_name": "Grub Mimic",
+    "area": "Deepnest",
+    "killed_key": "killedGrubMimic",
+    "kills_key": "killsGrubMimic",
+    "journal_note": "A creature disguised as a Grub that attacks when approached."
+  },
+  {
+    "id": "duranda",
+    "display_name": "Duranda",
+    "area": "Kingdom's Edge",
+    "killed_key": "killedSnapperTrap",
+    "kills_key": "killsSnapperTrap",
+    "journal_note": "Former gardener of the Queen's Gardens turned hostile."
+  },
+  {
+    "id": "aluba",
+    "display_name": "Aluba",
+    "area": "Fog Canyon",
+    "killed_key": "killedJellyfish",
+    "kills_key": "killsJellyfish",
+    "journal_note": "Graceful flying creature of the Fog Canyon."
+  },
+  {
+    "id": "uoma",
+    "display_name": "Uoma",
+    "area": "Fog Canyon",
+    "killed_key": "killedJellyfish",
+    "kills_key": "killsJellyfish",
+    "journal_note": "Small, ethereal jellyfish drifting through the Fog."
+  },
+  {
+    "id": "ooma",
+    "display_name": "Ooma",
+    "area": "Fog Canyon",
+    "killed_key": "killedMegaJellyfish",
+    "kills_key": "killsMegaJellyfish",
+    "journal_note": "Large jellyfish that explodes into small offspring when killed."
+  },
+  {
+    "id": "charged_lumafly",
+    "display_name": "Charged Lumafly",
+    "area": "Fog Canyon",
+    "killed_key": "killedLazyFlyer",
+    "kills_key": "killsLazyFlyer",
+    "journal_note": "Lumafly charged with energy from the Fog."
+  },
+  {
+    "id": "ambloom",
+    "display_name": "Ambloom",
+    "area": "Queen's Gardens",
+    "killed_key": "killedGardenZombie",
+    "kills_key": "killsGardenZombie",
+    "journal_note": "Overgrown creature shambling through the Queen's Gardens."
+  },
+  {
+    "id": "marmu_placeholder",
+    "display_name": "Moss Grub",
+    "area": "Greenpath",
+    "killed_key": "killedGhostMarmu",
+    "kills_key": "killsGhostMarmu",
+    "journal_note": "Small grub covered in moss."
+  },
+  {
+    "id": "maskfly",
+    "display_name": "Maskfly",
+    "area": "Greenpath",
+    "killed_key": "killedGrassHopper",
+    "kills_key": "killsGrassHopper",
+    "journal_note": "Timid creature that flees at the sight of others."
+  },
+  {
+    "id": "mosskin",
+    "display_name": "Mosskin",
+    "area": "Greenpath",
+    "killed_key": "killedMossmanShaker",
+    "kills_key": "killsMossmanShaker",
+    "journal_note": "Creature hidden within a thick coating of moss."
+  },
+  {
+    "id": "lesser_mawlek",
+    "display_name": "Lesser Mawlek",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedLesserMawlek",
+    "kills_key": "killsLesserMawlek",
+    "journal_note": "Smaller version of the Brooding Mawlek."
+  },
+  {
+    "id": "maggot",
+    "display_name": "Maggot",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedWorm",
+    "kills_key": "killsWorm",
+    "journal_note": "Wriggling larval creature found in dark caverns."
+  },
+  {
+    "id": "shade",
+    "display_name": "Shade",
+    "area": "Various",
+    "killed_key": "killedSibling",
+    "kills_key": "killsSibling",
+    "journal_note": "The creature born from the Knight's death. Contains lost Geo."
+  },
+  {
+    "id": "pale_lurker",
+    "display_name": "Pale Lurker",
+    "area": "Colosseum of Fools",
+    "killed_key": "killedPaleLurker",
+    "kills_key": "killsPaleLurker",
+    "journal_note": "Strange, quick creature lurking near the Colosseum."
+  },
+  {
+    "id": "menderbug",
+    "display_name": "Menderbug",
+    "area": "Forgotten Crossroads",
+    "killed_key": "killedMenderBug",
+    "kills_key": "killsMenderBug",
+    "journal_note": "A rare, peaceful bug that repairs signs."
+  }
+]

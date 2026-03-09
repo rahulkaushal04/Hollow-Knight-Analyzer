@@ -1,0 +1,46 @@
+[
+  {
+    "id": "wanderers_journal",
+    "display_name": "Wanderer's Journal",
+    "trinket_key": "trinket1",
+    "found_key": "foundTrinket1",
+    "sold_key": "soldTrinket1",
+    "no_key": "noTrinket1",
+    "sell_value": 200,
+    "total_in_world": 14,
+    "description": "A journal once carried by a long-dead traveller through Hallownest."
+  },
+  {
+    "id": "hallownest_seal",
+    "display_name": "Hallownest Seal",
+    "trinket_key": "trinket2",
+    "found_key": "foundTrinket2",
+    "sold_key": "soldTrinket2",
+    "no_key": "noTrinket2",
+    "sell_value": 450,
+    "total_in_world": 17,
+    "description": "Official seal of the Kingdom of Hallownest, once used to mark important documents."
+  },
+  {
+    "id": "kings_idol",
+    "display_name": "King's Idol",
+    "trinket_key": "trinket3",
+    "found_key": "foundTrinket3",
+    "sold_key": "soldTrinket3",
+    "no_key": "noTrinket3",
+    "sell_value": 800,
+    "total_in_world": 8,
+    "description": "A golden idol depicting the Pale King of Hallownest."
+  },
+  {
+    "id": "arcane_egg",
+    "display_name": "Arcane Egg",
+    "trinket_key": "trinket4",
+    "found_key": "foundTrinket4",
+    "sold_key": "soldTrinket4",
+    "no_key": "noTrinket4",
+    "sell_value": 1200,
+    "total_in_world": 4,
+    "description": "Mysterious egg from before the birth of Hallownest."
+  }
+]
